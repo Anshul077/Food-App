@@ -13,7 +13,7 @@ import avatar from '../images/avatar.png'
 import {ShoppingBasket} from '@mui/icons-material';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  position: 'fixed',
+  position: 'static',
   height: '65px',
   transition: 'background-color .3s ease-in',
   boxShadow: 'none',
