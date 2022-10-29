@@ -11,14 +11,11 @@ import b1 from '../images/b1.png'
 
 
 const MainBox = styled(Box)`
-margin-top:40px;
-// background:grey;
 width:100%;
 display:flex;
 justify-content:space-between;
 `
 const LeftBox = styled(Box)`
-// background:red;
 word-wrap:break-word;
 width:50%;
 padding:0 40px;
@@ -56,12 +53,8 @@ const TaglineSub = styled("span")(({ theme }) => ({
 
 
 const RightBox = styled(Box)`
-// display:flex;
-// background:yellow;
 width:50%;
 height:100%;
-// justify-content:center;
-// align-items:center;
 `
 const ImageBox = styled(Box)`
 position:absolute;
@@ -70,8 +63,6 @@ width:40%;
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
-// background:blue;
-
 `
 
 const Home = () => {
