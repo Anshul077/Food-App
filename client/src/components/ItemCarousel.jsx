@@ -1,0 +1,152 @@
+import React from 'react'
+import { Box, styled, Typography } from "@mui/material";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { FruitData } from '../Data.js'
+import { LocalMall } from '@mui/icons-material';
+
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 4,
+        slidesToSlide: 1,
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 3,
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 2,
+    },
+};
+
+
+const MainBox = styled(Box)(({ theme }) => ({
+    padding: 5,
+    margin: "0 15px 30px 15px",
+    [theme.breakpoints.down('sm')]: {
+        margin: "0 15px 30px 15px",
+    }
+}))
+
+const Details = styled(Typography)`
+    margin-left:auto;
+    font-family: 'Poppins', sans-serif;
+    margin-top:5px;
+  font-size: 15;
+  font-weight:bold;
+`
+
+const StyledImage = styled("img")(({ theme }) => ({
+    position: 'relative',
+    width: '120px',
+    height: '120px',
+    objectFit: 'contain',
+    cursor: 'pointer',
+    top: '-19%',
+    left: '3%',
+    "&:hover": {
+        transform: 'scale(1.3)',
+        transition:'.3s ease-in-out'
+      },
+}));
+
+
+const Rupee = styled("span")(({ theme }) => ({
+    color:'rgb(254 84 0)',
+    fontfamily: "'Poppins', sans-serif",
+    marginTop:5,
+    marginRight:2,
+  fontSize: 15,
+  fontWeight:'bold'
+}));
+
+const LineHeading = styled("hr")(({ theme }) => ({
+    backgroundColor: 'rgb(254 84 0)',
+    position: 'absolute',
+    width: '7%',
+    marginTop: -28,
+    marginLeft: 20
+
+}));
+
+const ItemBox = styled(Box)`
+  width: 250px;
+  height: 156px;
+  cursor: pointer;
+  margin: 15px 10px;
+  align-items:center;
+  display:flex;
+  padding-right:10px;
+  justify-content:space-between;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  &:hover{
+   background-color:#f1f1f1;
+  }
+ `
+const DetailsBox = styled(Box)`
+  display:flex;
+  flex-direction:column;
+  width:100px;
+
+ `
+const Heading = styled(Typography)`
+    font-size: 20px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  margin:70px 0 30px 20px;
+`
+
+const StyledCarousel = styled(Carousel)`
+`;
+
+const ItemCarousel = () => {
+    return (
+        <>
+            <MainBox style={{}}>
+                <Heading variant="h3">Fresh Healthy Fruits</Heading>
+                <LineHeading style={{height:'5px'}}/>
+                <StyledCarousel
+                    swipeable={true}
+                    draggable={false}
+                    responsive={responsive}
+                    centerMode={false}
+                    infinite={false}
+                    shouldResetAutoplay={false}
+                    autoPlay={false}
+                    keyBoardControl={true}
+                    showDots={false}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item-padding-40-px"
+                >
+                    {FruitData.map((item) => (
+                        <ItemBox>
+                            <StyledImage src={item.url} alt="" />
+                            <DetailsBox>
+                                <LocalMall style={{
+                                    color: 'rgb(254 84 0)',
+                                    position: 'absolute',
+                                    marginLeft: 'auto',
+                                    top: '23%',
+                                    right: '29%',
+                                }} />
+                                <Box style={{width:'100px',marginTop:50,display:'flex',flexDirection:'column'}}>
+
+                                <Details>{item.name}</Details>
+                                <Details style={{fontSize: 12,
+  fontWeight:'lighter'}}>{item.calories}</Details>
+                                <Details><Rupee>₹</Rupee>{item.price}</Details>
+                                </Box>
+                            </DetailsBox>
+                        </ItemBox>
+                    ))}
+                </StyledCarousel>
+            </MainBox>
+        </>
+    )
+}
+
+export default ItemCarousel

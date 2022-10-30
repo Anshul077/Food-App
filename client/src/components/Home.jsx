@@ -8,7 +8,7 @@ import {
 import Navbar from './Navbar'
 import heroBg from '../images/heroBg.png'
 import b1 from '../images/b1.png'
-
+import ItemCarousel from './ItemCarousel';
 
 const MainBox = styled(Box)`
 width:100%;
@@ -33,7 +33,7 @@ margin-top:20px;
   font-size:15px;
   `
 const OrderButton = styled(Button)`
-margin-top:20px;
+margin-top:30px;
 background-color:#ef662e;
 color:#ffffff;
   font-family: 'Poppins', sans-serif;
@@ -84,6 +84,7 @@ const Home = () => {
           <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '10%' }} alt="" />
         </RightBox>
       </MainBox>
+      <ItemCarousel/>
     </>
   )
 }
