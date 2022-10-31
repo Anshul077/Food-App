@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, styled, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { FruitData } from '../Data.js'
+import { ItemData } from '../Data.js'
 import { LocalMall } from '@mui/icons-material';
 
 const responsive = {
@@ -34,7 +34,7 @@ const Details = styled(Typography)`
     margin-left:auto;
     font-family: 'Poppins', sans-serif;
     margin-top:5px;
-  font-size: 15;
+  font-size: 16px;
   font-weight:bold;
 `
 
@@ -62,17 +62,10 @@ const Rupee = styled("span")(({ theme }) => ({
   fontWeight:'bold'
 }));
 
-const LineHeading = styled("hr")(({ theme }) => ({
-    backgroundColor: 'rgb(254 84 0)',
-    position: 'absolute',
-    width: '7%',
-    marginTop: -28,
-    marginLeft: 20
 
-}));
 
 const ItemBox = styled(Box)`
-  width: 250px;
+  width: 270px;
   height: 156px;
   cursor: pointer;
   margin: 15px 10px;
@@ -88,25 +81,17 @@ const ItemBox = styled(Box)`
 const DetailsBox = styled(Box)`
   display:flex;
   flex-direction:column;
-  width:100px;
-
+  width:112px;
  `
-const Heading = styled(Typography)`
-    font-size: 20px;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  margin:70px 0 30px 20px;
-`
+
 
 const StyledCarousel = styled(Carousel)`
 `;
 
-const ItemCarousel = () => {
+const ItemCarousel = ({category}) => {
     return (
         <>
-            <MainBox style={{}}>
-                <Heading variant="h3">Fresh Healthy Fruits</Heading>
-                <LineHeading style={{height:'5px'}}/>
+            <MainBox>
                 <StyledCarousel
                     swipeable={true}
                     draggable={false}
@@ -122,18 +107,18 @@ const ItemCarousel = () => {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
                 >
-                    {FruitData.map((item) => (
+                    {ItemData.filter((item) => item.category===category).map((item) => (
                         <ItemBox>
                             <StyledImage src={item.url} alt="" />
                             <DetailsBox>
                                 <LocalMall style={{
                                     color: 'rgb(254 84 0)',
-                                    position: 'absolute',
+                                    // position: 'absolute',
                                     marginLeft: 'auto',
-                                    top: '23%',
-                                    right: '29%',
+                                    // top: '23%',
+                                    // right: '29%',
                                 }} />
-                                <Box style={{width:'100px',marginTop:50,display:'flex',flexDirection:'column'}}>
+                                <Box style={{width:'112px',marginTop:10,display:'flex',flexDirection:'column'}}>
 
                                 <Details>{item.name}</Details>
                                 <Details style={{fontSize: 12,

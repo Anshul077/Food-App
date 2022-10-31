@@ -9,6 +9,7 @@ import Navbar from './Navbar'
 import heroBg from '../images/heroBg.png'
 import b1 from '../images/b1.png'
 import ItemCarousel from './ItemCarousel';
+import MultipleDishes from './MultipleDishes';
 
 const MainBox = styled(Box)`
 width:100%;
@@ -65,6 +66,22 @@ justify-content:center;
 flex-wrap:wrap;
 `
 
+const LineHeading = styled("hr")(({ theme }) => ({
+  backgroundColor: 'rgb(254 84 0)',
+  position: 'absolute',
+  width: '7%',
+  marginTop: -28,
+  marginLeft: 20
+
+}));
+
+const Heading = styled(Typography)`
+    font-size: 20px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  margin:70px 0 30px 20px;
+`
+
 const Home = () => {
   return (
     <>
@@ -84,7 +101,12 @@ const Home = () => {
           <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '10%' }} alt="" />
         </RightBox>
       </MainBox>
-      <ItemCarousel/>
+      <Heading variant="h3">Fresh Healthy Fruits</Heading>
+      <LineHeading style={{height:'5px'}}/>
+      <ItemCarousel category="all" />
+      <Heading variant="h3">Our Hot Dishes</Heading>
+      <LineHeading style={{height:'5px'}}/>
+      <MultipleDishes/>
     </>
   )
 }
