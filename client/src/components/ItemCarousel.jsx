@@ -65,18 +65,19 @@ const Rupee = styled("span")(({ theme }) => ({
 
 
 const ItemBox = styled(Box)`
-  width: 270px;
-  height: 156px;
-  cursor: pointer;
-  margin: 15px 10px;
-  align-items:center;
-  display:flex;
-  padding-right:10px;
-  justify-content:space-between;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  &:hover{
-   background-color:#f1f1f1;
-  }
+width: 270px;
+height: 140px;
+cursor: pointer;
+margin: 15px 10px;
+align-items:center;
+display:flex;
+padding-right:10px;
+justify-content:space-between;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+&:hover{
+ background-color:#f1f1f1;
+}
+
  `
 const DetailsBox = styled(Box)`
   display:flex;
@@ -89,6 +90,10 @@ const StyledCarousel = styled(Carousel)`
 `;
 
 const ItemCarousel = ({category}) => {
+
+
+
+
     return (
         <>
             <MainBox>
@@ -111,14 +116,16 @@ const ItemCarousel = ({category}) => {
                         <ItemBox>
                             <StyledImage src={item.url} alt="" />
                             <DetailsBox>
-                                <LocalMall style={{
-                                    color: 'rgb(254 84 0)',
-                                    // position: 'absolute',
-                                    marginLeft: 'auto',
-                                    // top: '23%',
-                                    // right: '29%',
-                                }} />
-                                <Box style={{width:'112px',marginTop:10,display:'flex',flexDirection:'column'}}>
+                            <LocalMall style={{
+                                background: 'rgb(254, 84, 0)',
+                                borderRadius:' 50%',
+                                padding: 5,
+                                color: 'white',
+                                marginLeft:80,
+                                marginTop: -10,
+                                position: 'absolute'
+                            }} />
+                                <Box style={{width:'112px',marginTop:20,display:'flex',flexDirection:'column'}}>
 
                                 <Details>{item.name}</Details>
                                 <Details style={{fontSize: 12,
