@@ -71,5 +71,26 @@ export const ItemData=[
         price:"8.5",
         category:'chicken'
     },
+    {
+        url:"https://lh6.googleusercontent.com/gHQJUopNhbsg-pXVA7lFWgEuRKSyy-5ELqYbpmmmgwcxpPHZx-NSu50nq1JNnE5_AAY=w2400",
+        name:"Chicken Kebab",
+        calories:"95 Calories",
+        price:"12",
+        category:'fish'
+    },
+    {
+        url:"https://lh5.googleusercontent.com/m7I4BkSOdiRPnr5QdmzXnb7cAz4r5CMGLHDgCvoS8SxjeCmSYbt9kFjbfNaMd_WYAic=w2400",
+        name:"Chicken 65",
+        calories:"90 Calories",
+        price:"12.5",
+        category:'fish'
+    },
+    {
+        url:"https://lh6.googleusercontent.com/jZtf9ppxcO6lin-oJx0iYvTtXRUZhwFG40gaCdNILwy-5jYApxQA1KSYiaMxAhsp2hg=w2400",
+        name:"Chicken Manchoorian",
+        calories:"60 Calories",
+        price:"8.5",
+        category:'curry'
+    },
    
 ]

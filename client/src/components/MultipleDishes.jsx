@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button,ButtonGroup, styled, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, styled, Typography } from "@mui/material";
 import { ItemData } from '../Data.js'
 import { LocalMall } from '@mui/icons-material';
 import { DinnerDining } from '@mui/icons-material';
@@ -32,6 +32,21 @@ const SecondaryBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
         margin: "0 15px 30px 15px",
     }
+}))
+
+const CardBox = styled(Box)(({ theme }) => ({
+    width: 100,
+    height: 100,
+    boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+    display: 'flex',
+    backgroundColor: 'rgb(255 106 32)',
+    flexDirection: 'column',
+    borderRadius: 5,
+    color: "#ffffff",
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 15,
+    cursor: 'pointer'
 }))
 
 const Details = styled(Typography)`
@@ -94,61 +109,41 @@ const DetailsBox = styled(Box)`
 
 const MultipleDishes = () => {
 
-    const ItemNames = ["Chicken", "Fish", "Curry"]
-    const [style, setStyle] = useState({
-        width: 100,
-        height: 100,
-        boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-        display: 'flex',
-        flexDirection: 'column',
-        borderRadius: 5,
-        color:"black",
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 15,
-        cursor: 'pointer'
-    })
+    const ItemNames = ["chicken", "fish", "curry"]
+    const [DishName, setDishName] = useState("chicken")
 
-    const [logoStyle, setLogoStyle] = useState({
-        backgroundColor: 'rgb(254 84 0)',
-        color: 'white',
-        padding: ' 7px',
-        width: ' 36px',
-        height: '36px',
-        backgroundColor: 'rgb(254, 84, 0)',
-        borderRadius: '50%'
-    })
-
-    // const changeItem = () => {
-    //     setStyle({ ...style, backgroundColor: 'rgb(254 84 0)' })
-    //     setLogoStyle({...logoStyle,color:'black',backgroundColor:'#ffffff'})
-    // }
 
     return (
         <>
             <MainBox >
                 {
                     ItemNames.map((item) => (
-                        <ButtonGroup value={item} >
-                        <Button id={item} style={style} onClick={(e) => {
-                            if(e.target.id===item || e.target.innerText===item)
-                            {
-                                setStyle({ ...style, backgroundColor: 'rgb(254 84 0)' })
-                                setLogoStyle({ ...logoStyle, color: 'black', backgroundColor: '#ffffff' })
-                            }
-                            
+
+                        <CardBox onClick={(e) => {
+
+                            setDishName(e.target.id || e.target.innerText || e.target.nearestViewportElement.id)
+
+
+
                         }
                         } >
-                            <DinnerDining value={item} id={item} style={logoStyle} />
+                            <DinnerDining value={item} id={item} style={{
+                                backgroundColor: '#ffffff',
+                                color: 'black',
+                                padding: ' 7px',
+                                width: ' 36px',
+                                height: '36px',
+                                borderRadius: '50%'
+                            }} />
                             <TitleName id={item}> {item}</TitleName>
-                        </Button>
-                        </ButtonGroup>
+                        </CardBox>
+
                     ))
                 }
 
             </MainBox>
             <SecondaryBox>
-                {ItemData.filter((item) => item.category === "chicken").map((item) => (
+                {ItemData.filter((item) => item.category === DishName).map((item) => (
                     <ItemBox>
                         <StyledImage src={item.url} alt="" />
                         <DetailsBox>
