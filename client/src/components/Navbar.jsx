@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
   AppBar,
   Toolbar,
@@ -8,17 +8,20 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import "../App.css";
+import { Link } from "react-router-dom";
 import chef from '../images/chef.png'
 import avatar from '../images/avatar.png'
-import {ShoppingBasket} from '@mui/icons-material';
+import { IconContext } from "react-icons";
+import { ShoppingBasket } from '@mui/icons-material';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'static',
   height: '65px',
   transition: 'background-color .3s ease-in',
   boxShadow: 'none',
-  color:'black',
-  backgroundColor: 'transparent',
+  color: 'white',
+  backgroundColor: 'black',
   display: 'flex',
   justifyContent: 'center',
   [theme.breakpoints.down('sm')]: {
@@ -55,20 +58,28 @@ font-family: 'Poppins', sans-serif;
 
 const StyledUl = styled("ul")({
   display: "flex",
-    StyledListStyle: "none",
+  StyledListStyle: "none",
   margin: "auto 10px 0 40px",
   textDecoration: "none",
 });
 
-const StyledLi= styled("li")({
+const StyledLi = styled("li")({
   display: "flex",
   StyledListStyle: "none",
   textDecoration: "none",
-  margin:'auto 35px'
+  cursor:'pointer',
+  margin: 'auto 35px'
 
 });
 
 const Navbar = () => {
+
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () =>{
+    console.log("hello") 
+    setSidebar(!sidebar);}
+
   return (
     <>
       <StyledAppBar >
@@ -83,12 +94,32 @@ const Navbar = () => {
               <StyledLi>Home</StyledLi>
               <StyledLi>Menu</StyledLi>
               <StyledLi>About Us</StyledLi>
-              <StyledLi><ShoppingBasket/></StyledLi>
-              <StyledLi> <AvatarImage
-            src={avatar}
-            alt="logo"
+              <StyledLi>
+             </StyledLi>
+                      <ShoppingBasket />
+              <StyledLi>
+              <IconContext.Provider value={{ color: "undefined" }}>
+                  <div className="navbar">
+                    <Link to="#" className="menu-bars">
+                <AvatarImage
+                  src={avatar}
+                  alt="logo"
+                  onClick={showSidebar}
+                  />
+                    </Link>
+                  </div>
+                  <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+          <ul className="nav-menu-items" onClick={showSidebar}>
+            <li className="navbar-toggle">
+            
+            </li>
+           
+          </ul>
+        </nav>
+                 
+                </IconContext.Provider> 
 
-          /></StyledLi>
+                </StyledLi>
             </StyledUl>
           </LeftBox>
         </Toolbar>

@@ -1,13 +1,16 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
   Box,
   Button,
   styled,
   Typography,
 } from "@mui/material";
+import "../App.css";
+import { Link } from "react-router-dom";
 import Navbar from './Navbar'
 import heroBg from '../images/heroBg.png'
 import b1 from '../images/b1.png'
+import { IconContext } from "react-icons";
 import ItemCarousel from './ItemCarousel';
 import MultipleDishes from './MultipleDishes';
 
@@ -83,6 +86,11 @@ const Heading = styled(Typography)`
 `
 
 const Home = () => {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () =>{
+    console.log("hello") 
+    setSidebar(!sidebar);}
   return (
     <>
       <Navbar />
@@ -92,7 +100,15 @@ const Home = () => {
             Delicious Food To Fit<TaglineSub> Your lifestyle</TaglineSub>
           </Tagline>
           <ContentLine>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi non, rerum harum optio eveniet molestias dicta? Aliquam laboriosam blanditiis quod dignissimos provident omnis, dolorem quae exercitationem facilis cumque voluptas totam.</ContentLine>
-          <OrderButton>Order Now</OrderButton>
+          <IconContext.Provider value={{ color: "undefined" }}>
+                  <div className="navbar">
+                    <Link to="#" className="menu-bars">
+                      <OrderButton  onClick={showSidebar}>Order Now</OrderButton>
+                
+                    </Link>
+                  </div>
+                 
+                </IconContext.Provider> 
         </LeftBox>
         <RightBox>
           <ImageBox>
