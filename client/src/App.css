@@ -45,6 +45,7 @@
 .navbar {
   /* background-color: #ffffff; */
   height: 80px;
+  margin-left: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
