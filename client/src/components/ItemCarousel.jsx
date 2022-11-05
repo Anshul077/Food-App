@@ -3,7 +3,7 @@ import { Box, styled, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ItemData } from '../Data.js'
-import { LocalMall } from '@mui/icons-material';
+import { LocalMall,ArrowForward,ArrowBack } from '@mui/icons-material';
 
 const responsive = {
     desktop: {
@@ -68,7 +68,7 @@ const ItemBox = styled(Box)`
 width: 270px;
 height: 140px;
 cursor: pointer;
-margin: 15px 10px;
+margin: 15px 25px;
 align-items:center;
 display:flex;
 padding-right:10px;
@@ -87,11 +87,42 @@ const DetailsBox = styled(Box)`
 
 
 const StyledCarousel = styled(Carousel)`
+overflow:visible;
 `;
 
 const ItemCarousel = ({category}) => {
-
-
+    const arrowStyle = {
+        height:34,
+        width:34,
+        border: 0,
+        color: "#fff",
+        background:"rgb(255 154 104)",
+        borderRadius:"10%",
+        position:"absolute",
+        right:'4%',
+        top:'-30%'
+      };
+    const CustomRightArrow = ({onClick}) => (
+        <button className="arrow right" onClick={onClick} style={arrowStyle}>
+        <ArrowForward style={{ fontSize: "25px" }} />
+      </button>
+    );
+    const arrowLeftStyle = {
+        height:34,
+        width:34,
+        border: 0,
+        color: "#fff",
+        background:"rgb(255 154 104)",
+        borderRadius:"10%",
+        position:"absolute",
+        right:'8%',
+        top:'-30%'
+      };
+    const CustomLeftArrow = ({onClick}) => (
+        <button className="arrow left" onClick={onClick} style={arrowLeftStyle}>
+        <ArrowBack style={{ fontSize: "25px" }} />
+      </button>
+    );
 
 
     return (
@@ -100,17 +131,23 @@ const ItemCarousel = ({category}) => {
                 <StyledCarousel
                     swipeable={true}
                     draggable={false}
+                    arrows
                     responsive={responsive}
                     centerMode={false}
                     infinite={false}
                     shouldResetAutoplay={false}
                     autoPlay={false}
+                    renderButtonGroupOutside={false}
+
+                    customRightArrow={<CustomRightArrow />}
+                    customLeftArrow={<CustomLeftArrow />}
                     keyBoardControl={true}
                     showDots={false}
                     containerClass="carousel-container"
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
+                    
                 >
                     {ItemData.filter((item) => item.category===category).map((item) => (
                         <ItemBox>

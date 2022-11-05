@@ -37,6 +37,13 @@ export const ItemData=[
         category:'all'
     },
     {
+        url:"https://lh3.googleusercontent.com/ZsM8v3gebLQSEHtURQ8xaquREFTSQfcMme5VxTi8KPccV-z4l4ZzBpiWJsugXSaBSuE=w2400",
+        name:"Banana",
+        calories:"89 Calories",
+        price:"20",
+        category:'all'
+    },
+    {
         url:"https://lh5.googleusercontent.com/yADDGY5IPugrT4jf2nJuQtRECa1c4CoBJ41KleG_5XIkdg-8Ig0V725lv6wh60NOYG8=w2400",
         name:"Breasted Chicken",
         calories:"80 Calories",

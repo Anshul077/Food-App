@@ -6,11 +6,9 @@ import {
   Typography,
 } from "@mui/material";
 import "../App.css";
-import { Link } from "react-router-dom";
 import Navbar from './Navbar'
 import heroBg from '../images/heroBg.png'
 import b1 from '../images/b1.png'
-import { IconContext } from "react-icons";
 import ItemCarousel from './ItemCarousel';
 import MultipleDishes from './MultipleDishes';
 
@@ -100,21 +98,15 @@ const Home = () => {
             Delicious Food To Fit<TaglineSub> Your lifestyle</TaglineSub>
           </Tagline>
           <ContentLine>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi non, rerum harum optio eveniet molestias dicta? Aliquam laboriosam blanditiis quod dignissimos provident omnis, dolorem quae exercitationem facilis cumque voluptas totam.</ContentLine>
-          <IconContext.Provider value={{ color: "undefined" }}>
-                  <div className="navbar">
-                    <Link to="#" className="menu-bars">
-                      <OrderButton  onClick={showSidebar}>Order Now</OrderButton>
-                
-                    </Link>
-                  </div>
-                 
-                </IconContext.Provider> 
+
+                      <OrderButton >Order Now</OrderButton>
+
         </LeftBox>
         <RightBox>
           <ImageBox>
-            <img src={b1} alt="" style={{ height: 600, marginTop: '-10%' }} />
+            <img src={b1} alt="" style={{ height: 600, marginTop: '-5%' }} />
           </ImageBox>
-          <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '10%' }} alt="" />
+          <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '15%' }} alt="" />
         </RightBox>
       </MainBox>
       <Heading variant="h3">Fresh Healthy Fruits</Heading>

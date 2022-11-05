@@ -51,15 +51,17 @@
 }
 
 .menu-bars {
-  margin-left: 2rem;
   font-size: 2rem;
   background: none;
+  text-decoration: none;
   color: #000;
+  margin-left: -36px;
 }
 
 .nav-menu {
   background-color: #ffffff;
-  width: 250px;
+  width: 400px;
+  z-index: 15;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -72,6 +74,11 @@
 .nav-menu.active {
   right: 0;
   transition: 450ms;
+  z-index: 15;
+  display: flex;
+  justify-content: space-between;
+  padding:0 5px;
+  flex-direction: column;
 }
 
 .nav-text {
