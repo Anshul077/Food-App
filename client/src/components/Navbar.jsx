@@ -119,11 +119,11 @@ const Navbar = () => {
               <StyledLi>Menu</StyledLi>
               <StyledLi>About Us</StyledLi>
               <StyledLi>
-              </StyledLi>
               <IconContext.Provider value={{ color: "undefined" }}>
                 <div className="navbar">
                   <Link to="#" className="menu-bars">
-                    <ShoppingBasket style={{color:'black'}} onClick={showSidebar} />
+                    <ShoppingBasket style={{color:'black',    margin: '-9px 0 0 13px'
+}} onClick={showSidebar} />
                   </Link>
                 </div>
                 <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
@@ -145,6 +145,7 @@ const Navbar = () => {
                 </nav>
 
               </IconContext.Provider>
+              </StyledLi>
               <StyledLi>
                 <AvatarImage
                   src={avatar}

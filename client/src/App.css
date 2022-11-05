@@ -43,7 +43,7 @@
 }
 
 .navbar {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   height: 80px;
   display: flex;
   justify-content: flex-start;
