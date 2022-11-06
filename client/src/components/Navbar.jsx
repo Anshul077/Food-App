@@ -62,8 +62,7 @@ display:flex;
  justify-content:center;
  align-items:center;
 `;
-const\;kl79
-jfsadBox = styled(Box)`
+const SecondaryBox = styled(Box)`
 height:100%;
 background:#1a1a1a;
 margin-top: 18px;
