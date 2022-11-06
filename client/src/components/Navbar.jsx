@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import chef from '../images/chef.png'
 import avatar from '../images/avatar.png'
 import { IconContext } from "react-icons";
-import { ShoppingBasket,ArrowBack,Delete } from '@mui/icons-material';
+import { ShoppingBasket, ArrowBack, Delete } from '@mui/icons-material';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'static',
@@ -54,6 +54,21 @@ const LeftBox = styled(Box)`
 `;
 const PrimaryBox = styled(Box)`
 height:100%;
+background:#1a1a1a;
+margin-top: 18px;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+display:flex;
+ justify-content:center;
+ align-items:center;
+`;
+const\;kl79
+jfsadBox = styled(Box)`
+height:100%;
+background:#1a1a1a;
+margin-top: 18px;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
 display:flex;
  justify-content:center;
  align-items:center;
@@ -61,7 +76,7 @@ display:flex;
 const ItemBox = styled(Box)`
 width:100%;
 height:50px;
-margin:0 10px;
+padding:0 10px;
 //  background:grey;
  display:flex;
  justify-content:space-between;
@@ -119,32 +134,37 @@ const Navbar = () => {
               <StyledLi>Menu</StyledLi>
               <StyledLi>About Us</StyledLi>
               <StyledLi>
-              <IconContext.Provider value={{ color: "undefined" }}>
-                <div className="navbar">
-                  <Link to="#" className="menu-bars">
-                    <ShoppingBasket style={{color:'black',    margin: '-9px 0 0 13px'
-}} onClick={showSidebar} />
-                  </Link>
-                </div>
-                <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-                <ItemBox>
-                <ArrowBack/>
-                <Title>Cart</Title>
-                <Delete/>
-                </ItemBox>
-                <PrimaryBox>
-                  
-                  <img style={{height:'60vh'}} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" />
-                  {/* <ul className="nav-menu-items" onClick={showSidebar}>
-                    <li className="navbar-toggle">
+                <IconContext.Provider value={{ color: "undefined" }}>
+                  <div className="navbar">
+                    <Link to="#" className="menu-bars">
+                      <ShoppingBasket style={{
+                        color: 'black', margin: '-9px 0 0 13px'
+                      }} onClick={showSidebar} />
+                    </Link>
+                  </div>
+                  <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+                    <ItemBox>
+                      <ArrowBack onClick={showSidebar} style={{ cursor: 'pointer' }} />
+                      <Title>Cart</Title>
+                      <Delete />
+                    </ItemBox>
+                    <PrimaryBox>
 
-                    </li>
+                      {/* <img style={{
+                        height: '60vh'
+                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> */}
 
-                  </ul> */}
-                </PrimaryBox>
-                </nav>
+                    <SecondaryBox>
 
-              </IconContext.Provider>
+                      {/* <img style={{
+                        height: '60vh'
+                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> */}
+
+                    </SecondaryBox>
+                    </PrimaryBox>
+                  </nav>
+
+                </IconContext.Provider>
               </StyledLi>
               <StyledLi>
                 <AvatarImage
