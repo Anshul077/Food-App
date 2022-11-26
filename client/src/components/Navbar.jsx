@@ -3,6 +3,7 @@ import {
   AppBar,
   Toolbar,
   Box,
+  Button,
   styled,
   Typography,
   Menu,
@@ -46,6 +47,20 @@ const AvatarImage = styled("img")(({ theme }) => ({
   }
 }));
 
+const OrderButton = styled(Button)`
+width:80%;
+border-radius:23px;
+margin:auto auto 20px auto;
+background-color:#ff5c19;
+color:#ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size:15px;
+  &:hover{
+    color:black;
+    background-color:#f9a98a;
+  }
+  `
+
 const LeftBox = styled(Box)`
   margin-left: auto;
   display: flex;
@@ -53,24 +68,70 @@ const LeftBox = styled(Box)`
   aLign-items: center;
 `;
 const PrimaryBox = styled(Box)`
-height:100%;
+// height:100%;
+// background:#1a1a1a;
+// margin-top: 18px;
+// border-top-left-radius: 20px;
+// border-top-right-radius: 20px;
+// display:flex;
+//  justify-content:center;
+//  align-items:center;
+`;
+const SecondaryBox = styled(Box)`
+height:35rem;
 background:#1a1a1a;
 margin-top: 18px;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
+display:flex;
+ justify-content:space-between;
+ flex-direction:column;
+ align-items:center;
+`;
+const Box1 = styled(Box)`
+height:50%;
+min-width: 400px;
+background:#2c2b2b;
+margin-top: 18px;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+display:flex;
+ justify-content:space-between;
+ align-items:flex-start;
+ flex-direction:column;
+`;
+const Box3 = styled(Box)`
+height:80%;
+min-width: 400px;
+background:transparent;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+display:flex;
+ justify-content:center;
+ align-items:flex-start;
+ flex-direction:column;
+`;
+const Box2 = styled(Box)`
+width: 100%;
+// min-width: 320px;
+background:#2c2b2b;
+margin-top: 18px;
+border-radius:13px;
 display:flex;
  justify-content:center;
  align-items:center;
 `;
-const SecondaryBox = styled(Box)`
-height:100%;
-background:#1a1a1a;
-margin-top: 18px;
-border-top-left-radius: 20px;
-border-top-right-radius: 20px;
+const ContainerBox = styled(Box)`
+width: 90%;
+max-height: 240px;
+background:transparent;
+margin: 10px 0;
+border-radius:13px;
 display:flex;
  justify-content:center;
+ flex-direction:column;
  align-items:center;
+ overflow: auto;
 `;
 const ItemBox = styled(Box)`
 width:100%;
@@ -83,6 +144,19 @@ padding:0 10px;
 `;
 
 const AppName = styled(Typography)`
+font-family: 'Poppins', sans-serif;
+`;
+const SubHeading = styled(Typography)`
+font-size:16px;
+color:#b1b1b1;
+margin:30px 0 0 20px;
+font-family: 'Poppins', sans-serif;
+`;
+const SubTotal = styled(Typography)`
+font-size:18px;
+color:#ffffff;
+font-weight:bold;
+margin:60px 0 0 20px;
 font-family: 'Poppins', sans-serif;
 `;
 
@@ -98,6 +172,9 @@ const StyledUl = styled("ul")({
   StyledListStyle: "none",
   margin: "auto 10px 0 40px",
   textDecoration: "none",
+});
+const InlineHeading = styled("span")({
+  marginLeft:'238px',
 });
 
 const StyledLi = styled("li")({
@@ -154,11 +231,23 @@ const Navbar = () => {
                       }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> */}
 
                     <SecondaryBox>
+                      <ContainerBox>
+                      <Box2>
+                        <h1>hello</h1>
+                      </Box2>
+                      
+                      
+                      </ContainerBox>
+                      <Box1>
+                      <Box3>
+                        <SubHeading style={{marginTop:'-5px'}}>Sub Total<InlineHeading>$10</InlineHeading></SubHeading>
+                        <SubHeading >Delivery<InlineHeading  style={{marginLeft:'250px'}}>$10</InlineHeading></SubHeading>
+                        <SubTotal>Total</SubTotal>
+                      </Box3>
+                        <OrderButton >Order Now</OrderButton>
+                      </Box1>
 
-                      {/* <img style={{
-                        height: '60vh'
-                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> */}
-
+                     
                     </SecondaryBox>
                     </PrimaryBox>
                   </nav>
