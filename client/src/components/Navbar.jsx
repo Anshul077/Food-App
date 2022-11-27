@@ -12,6 +12,7 @@ import {
 import "../App.css";
 import { Link } from "react-router-dom";
 import chef from '../images/chef.png'
+import CartItem from './CartItem';
 import avatar from '../images/avatar.png'
 import { IconContext } from "react-icons";
 import { ShoppingBasket, ArrowBack, Delete } from '@mui/icons-material';
@@ -113,13 +114,10 @@ display:flex;
 `;
 const Box2 = styled(Box)`
 width: 100%;
-// min-width: 320px;
+padding:10px;
 background:#2c2b2b;
-margin-top: 18px;
 border-radius:13px;
 display:flex;
- justify-content:center;
- align-items:center;
 `;
 const ContainerBox = styled(Box)`
 width: 90%;
@@ -233,7 +231,8 @@ const Navbar = () => {
                     <SecondaryBox>
                       <ContainerBox>
                       <Box2>
-                        <h1>hello</h1>
+                        <CartItem/>
+              
                       </Box2>
                       
                       
