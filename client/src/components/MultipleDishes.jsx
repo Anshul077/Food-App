@@ -109,8 +109,8 @@ const DetailsBox = styled(Box)`
 
 const MultipleDishes = () => {
 
-    const ItemNames = ["chicken", "fish", "curry"]
-    const [DishName, setDishName] = useState("chicken")
+    const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
+    const [DishName, setDishName] = useState("Chicken")
 
 
     return (
