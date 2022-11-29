@@ -187,6 +187,12 @@ const StyledLi = styled("li")({
 const Navbar = () => {
 
   const [sidebar, setSidebar] = useState(false);
+  const [val,setVal]=useState(false)
+
+  const handleOnClick=()=>{
+    val===false?setVal(true):setVal(false)
+    
+  }
 
   const showSidebar = () => {
     console.log("hello")
@@ -220,15 +226,12 @@ const Navbar = () => {
                     <ItemBox>
                       <ArrowBack onClick={showSidebar} style={{ cursor: 'pointer' }} />
                       <Title>Cart</Title>
-                      <Delete />
+                      <Delete onClick={handleOnClick}/>
                     </ItemBox>
                     <PrimaryBox>
-
-                      {/* <img style={{
+{val===true? <img style={{
                         height: '60vh'
-                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> */}
-
-                    <SecondaryBox>
+                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" />: <SecondaryBox>
                       <ContainerBox>
                       <Box2>
                         <CartItem/>
@@ -247,7 +250,10 @@ const Navbar = () => {
                       </Box1>
 
                      
-                    </SecondaryBox>
+                    </SecondaryBox>}
+                     
+
+                   
                     </PrimaryBox>
                   </nav>
 

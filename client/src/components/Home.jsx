@@ -85,13 +85,16 @@ const Heading = styled(Typography)`
 
 const Home = () => {
   const [sidebar, setSidebar] = useState(false);
+  
+
+
 
   const showSidebar = () =>{
     console.log("hello") 
     setSidebar(!sidebar);}
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <MainBox>
         <LeftBox>
           <Tagline>
@@ -99,7 +102,7 @@ const Home = () => {
           </Tagline>
           <ContentLine>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi non, rerum harum optio eveniet molestias dicta? Aliquam laboriosam blanditiis quod dignissimos provident omnis, dolorem quae exercitationem facilis cumque voluptas totam.</ContentLine>
 
-                      <OrderButton >Order Now</OrderButton>
+                      <OrderButton>Order Now</OrderButton>
 
         </LeftBox>
         <RightBox>
