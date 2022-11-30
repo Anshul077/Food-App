@@ -1,5 +1,6 @@
 import express from "express"
 import { Connection } from "./Connection.js"
+import { ExportData } from "./constants/ExportData.js"
 
 const app=express()
 
@@ -10,3 +11,4 @@ app.listen(PORT,()=>{
 })
 
 Connection()
+ExportData()
