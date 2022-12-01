@@ -2,9 +2,10 @@ import React,{useEffect} from 'react'
 import { Box, styled, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useSelector, useDispatch } from "react-redux";
 import {
-    getItemData,
-  } from "../../redux/action/ItemAction";
+    getItemData
+  } from "../redux/action/ItemAction";
 import { ItemData } from '../Data.js'
 import { LocalMall,ArrowForward,ArrowBack } from '@mui/icons-material';
 
@@ -95,10 +96,13 @@ overflow:visible;
 
 const ItemCarousel = ({category}) => {
 
-    useEffect(() => {
-        dispatch(getWishlistData());
+    const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.ItemData);
 
-    }, [third])
+    useEffect(() => {
+        dispatch(getWishlistData("all"));
+
+    }, [])
     
 
 
