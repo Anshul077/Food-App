@@ -1,7 +1,10 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Box, styled, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import {
+    getItemData,
+  } from "../../redux/action/ItemAction";
 import { ItemData } from '../Data.js'
 import { LocalMall,ArrowForward,ArrowBack } from '@mui/icons-material';
 
@@ -91,6 +94,16 @@ overflow:visible;
 `;
 
 const ItemCarousel = ({category}) => {
+
+    useEffect(() => {
+        dispatch(getWishlistData());
+
+    }, [third])
+    
+
+
+
+
     const arrowStyle = {
         height:34,
         width:34,
