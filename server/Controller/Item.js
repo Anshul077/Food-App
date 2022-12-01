@@ -2,8 +2,10 @@ import data from "../model/DataSchema.js";
 
 export const getDataItem = async (request, response) => {
     try {
-        console.log(request.body)
+        console.log("hello")
+        // console.log("category: ",request.body.category)
         const products = await data.find({});
+        console.log(products)
         response.json(products);
         
     } catch (error) {
