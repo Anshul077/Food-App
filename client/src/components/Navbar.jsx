@@ -194,12 +194,15 @@ const Navbar = () => {
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
+  const [user,setUser]=useState({})
 
-  const handleGoogleAuth = async () => {
+  const handleGoogleAuth =  () => {
     const auth = getAuth()
-    await signInWithPopup(auth, provider).then(result => {
-      const user = result.user
-      console.log(user)
+     signInWithPopup(auth, provider).then(result => {
+      const newUser = result.user
+      setUser(newUser)
+    }).catch(error =>{
+      console.log(error.message)
     })
   }
 
@@ -275,11 +278,17 @@ const Navbar = () => {
                 </IconContext.Provider>
               </StyledLi>
               <StyledLi>
-                <AvatarImage
+                {user.email ? (<AvatarImage
+                  src={user.photoURL}
+                  style={{borderRadius:'50%'}}
+                  alt="logo"
+                  onClick={handleGoogleAuth}
+                />):(<AvatarImage
                   src={avatar}
                   alt="logo"
                   onClick={handleGoogleAuth}
-                />
+                />)}
+                
 
               </StyledLi>
             </StyledUl>
