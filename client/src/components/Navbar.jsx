@@ -6,8 +6,6 @@ import {
   Button,
   styled,
   Typography,
-  Menu,
-  MenuItem,
 } from "@mui/material";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -16,6 +14,9 @@ import CartItem from './CartItem';
 import avatar from '../images/avatar.png'
 import { IconContext } from "react-icons";
 import { ShoppingBasket, ArrowBack, Delete } from '@mui/icons-material';
+import initializeAuthentication from '../Firebase/firebase-int';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'static',
@@ -172,7 +173,7 @@ const StyledUl = styled("ul")({
   textDecoration: "none",
 });
 const InlineHeading = styled("span")({
-  marginLeft:'238px',
+  marginLeft: '238px',
 });
 
 const StyledLi = styled("li")({
@@ -184,14 +185,28 @@ const StyledLi = styled("li")({
 
 });
 
+
+initializeAuthentication()
+
+const provider = new GoogleAuthProvider();
+
 const Navbar = () => {
 
   const [sidebar, setSidebar] = useState(false);
-  const [val,setVal]=useState(false)
+  const [val, setVal] = useState(false)
 
-  const handleOnClick=()=>{
-    val===false?setVal(true):setVal(false)
-    
+  const handleGoogleAuth = async () => {
+    const auth = getAuth()
+    await signInWithPopup(auth, provider).then(result => {
+      const user = result.user
+      console.log(user)
+    })
+  }
+
+
+  const handleOnClick = () => {
+    val === false ? setVal(true) : setVal(false)
+
   }
 
   const showSidebar = () => {
@@ -226,34 +241,34 @@ const Navbar = () => {
                     <ItemBox>
                       <ArrowBack onClick={showSidebar} style={{ cursor: 'pointer' }} />
                       <Title>Cart</Title>
-                      <Delete onClick={handleOnClick}/>
+                      <Delete onClick={handleOnClick} />
                     </ItemBox>
                     <PrimaryBox>
-{val===true? <img style={{
+                      {val === true ? <img style={{
                         height: '60vh'
-                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" />: <SecondaryBox>
-                      <ContainerBox>
-                      <Box2>
-                        <CartItem/>
-              
-                      </Box2>
-                      
-                      
-                      </ContainerBox>
-                      <Box1>
-                      <Box3>
-                        <SubHeading style={{marginTop:'-5px'}}>Sub Total<InlineHeading>$10</InlineHeading></SubHeading>
-                        <SubHeading >Delivery<InlineHeading  style={{marginLeft:'250px'}}>$10</InlineHeading></SubHeading>
-                        <SubTotal>Total</SubTotal>
-                      </Box3>
-                        <OrderButton >Order Now</OrderButton>
-                      </Box1>
+                      }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> : <SecondaryBox>
+                        <ContainerBox>
+                          <Box2>
+                            <CartItem />
 
-                     
-                    </SecondaryBox>}
-                     
+                          </Box2>
 
-                   
+
+                        </ContainerBox>
+                        <Box1>
+                          <Box3>
+                            <SubHeading style={{ marginTop: '-5px' }}>Sub Total<InlineHeading>$10</InlineHeading></SubHeading>
+                            <SubHeading >Delivery<InlineHeading style={{ marginLeft: '250px' }}>$10</InlineHeading></SubHeading>
+                            <SubTotal>Total</SubTotal>
+                          </Box3>
+                          <OrderButton >Order Now</OrderButton>
+                        </Box1>
+
+
+                      </SecondaryBox>}
+
+
+
                     </PrimaryBox>
                   </nav>
 
@@ -263,7 +278,7 @@ const Navbar = () => {
                 <AvatarImage
                   src={avatar}
                   alt="logo"
-
+                  onClick={handleGoogleAuth}
                 />
 
               </StyledLi>
