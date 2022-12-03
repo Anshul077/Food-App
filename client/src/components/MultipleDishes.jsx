@@ -35,14 +35,20 @@ const CardBox = styled(Box)(({ theme }) => ({
     height: 100,
     boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
     display: 'flex',
-    backgroundColor: 'rgb(255 106 32)',
     flexDirection: 'column',
     borderRadius: 5,
-    color: "#ffffff",
+    color: "black",
+    backgroundColor:"rgb(255 136 78)",
     alignItems: 'center',
     justifyContent: 'center',
     margin: 15,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    transition:'.3s',
+    "&:hover": {
+        backgroundColor: 'rgb(255 106 32)',
+        
+      },
+    
 }))
 
 const Details = styled(Typography)`
@@ -62,7 +68,6 @@ const StyledImage = styled("img")(({ theme }) => ({
     top: '-40%',
     left: '5%',
     filter: 'drop-shadow(0px 8px 7px #222)',
-
     "&:hover": {
         transform: 'scale(1.3)',
         transition: '.3s ease-in-out'
