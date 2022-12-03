@@ -4,6 +4,7 @@ import { Connection } from "./Connection.js"
 import { ExportData } from "./constants/ExportData.js"
 import dotenv from 'dotenv'
 import Routes from "./routes/Routes.js"
+import bodyParser from 'body-parser';
 
 dotenv.config()
 
@@ -20,4 +21,6 @@ app.listen(PORT,()=>{
 })
 Connection(URL)
 ExportData()
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/',Routes)

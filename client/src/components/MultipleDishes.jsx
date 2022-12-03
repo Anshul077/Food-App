@@ -113,14 +113,14 @@ const MultipleDishes = ({Data}) => {
 
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
-    const [dishData,setDishData] = useState({})
+    // const [dishData,setDishData] = useState({})
     const addToCart =async (item)=>{
-        await setDishData({
+        
+        let response = await addItemCart({
             name:item.name,
             price:item.price,
             url:item.url
-        })
-        let response = await addItemCart(dishData);
+        });
         // if (!response) return;
         // else {
         //   if (response.status === 200) {

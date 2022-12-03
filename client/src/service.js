@@ -4,8 +4,9 @@ const url = 'http://localhost:8000';
 
 export const addItemCart =async (dishData)=>{
     try {
+      console.log(dishData)
         return await axios.post(`${url}/addCart`, dishData);
       } catch (error) {
-        console.log("error calling wishlist api",error.response.dishData);
+        console.log("error calling cart api",error);
       }
     }
