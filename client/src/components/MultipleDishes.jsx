@@ -112,6 +112,15 @@ const MultipleDishes = ({Data}) => {
 
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
+    const [dishData,setDishData] = useState({})
+    const addToCart =(item)=>{
+        setDishData({
+            name:item.name,
+            price:item.price,
+            url:item.url
+        })
+    }
+    
 
 
     return (
@@ -156,7 +165,9 @@ const MultipleDishes = ({Data}) => {
                                 marginLeft: 80,
                                 marginTop: 3,
                                 position: 'absolute'
-                            }} />
+                            }} 
+                            onClick={()=>addToCart(item)}
+                            />
                             <Box style={{
                                 width: 200,
                                 marginTop: 42,
