@@ -3,11 +3,7 @@ import { Box, Button, ButtonGroup, styled, Typography } from "@mui/material";
 import { ItemData } from '../Data.js'
 import { LocalMall } from '@mui/icons-material';
 import { DinnerDining } from '@mui/icons-material';
-import ItemCarousel from './ItemCarousel';
 
-const TitleBox = styled(Box)`
-
-`
 const MainBox = styled(Box)`
 display:flex;
 align-items:center;
@@ -107,7 +103,7 @@ const DetailsBox = styled(Box)`
 
 
 
-const MultipleDishes = () => {
+const MultipleDishes = ({Data}) => {
 
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
