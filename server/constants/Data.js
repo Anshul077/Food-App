@@ -79,10 +79,10 @@ export const ItemData=[
         category:'Chicken'
     },
     {
-        url:"https://lh5.googleusercontent.com/CZcGp-qw2Jhs8YMD7jEBRDH5H15gjtUBu8xHM0HsCPrAxUUTIkp_6vS0cELEkxv4n3Y=w2400",
-        name:"Fish Fry",
-        calories:"60 Calories",
-        price:"15",
+        url:"https://lh4.googleusercontent.com/N6OaTrifzEgLnd3KEFWDLA3ZQfe4UOuSm5alO47dwo99FP4Ce3wacvWq2VOpR25cPpI=w2400",
+        name:"Fish Steak",
+        calories:"40 Calories",
+        price:"25",
         category:'Fish'
     },
     {

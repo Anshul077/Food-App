@@ -139,7 +139,7 @@ const MultipleDishes = ({Data}) => {
 
             </MainBox>
             <SecondaryBox>
-                {ItemData.filter((item) => item.category === DishName).map((item) => (
+                {Data?Data.filter((item) => item.category === DishName).map((item) => (
                     <ItemBox>
                         <StyledImage src={item.url} alt="" />
                         <DetailsBox>
@@ -169,7 +169,7 @@ const MultipleDishes = ({Data}) => {
                             </Box>
                         </DetailsBox>
                     </ItemBox>
-                ))}
+                )):""}
             </SecondaryBox>
         </>
     )
