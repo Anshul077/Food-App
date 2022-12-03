@@ -3,6 +3,7 @@ import { Box, Button, ButtonGroup, styled, Typography } from "@mui/material";
 import { ItemData } from '../Data.js'
 import { LocalMall } from '@mui/icons-material';
 import { DinnerDining } from '@mui/icons-material';
+import { addItemCart } from '../service.js';
 
 const MainBox = styled(Box)`
 display:flex;
@@ -113,14 +114,26 @@ const MultipleDishes = ({Data}) => {
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
     const [dishData,setDishData] = useState({})
-    const addToCart =(item)=>{
-        setDishData({
+    const addToCart =async (item)=>{
+        await setDishData({
             name:item.name,
             price:item.price,
             url:item.url
         })
+        let response = await addItemCart(dishData);
+        // if (!response) return;
+        // else {
+        //   if (response.status === 200) {
+    
+        //     alert("Item added to the wishlist!!");
+        //   }
+        //   if (response.status === 201) {
+        //     alert("Item already in wishlist!!")
+        //   }
+        // }
     }
     
+
 
 
     return (
