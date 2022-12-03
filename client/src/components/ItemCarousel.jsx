@@ -1,12 +1,12 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { Box, styled, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useSelector, useDispatch } from "react-redux";
 
-import { ItemData } from '../Data.js'
+
+// import { ItemData } from '../Data.js'
 import { LocalMall,ArrowForward,ArrowBack } from '@mui/icons-material';
-import { getItemData } from '../redux/action/ItemAction.js';
+
 
 const responsive = {
     desktop: {
@@ -93,19 +93,9 @@ const StyledCarousel = styled(Carousel)`
 overflow:visible;
 `;
 
-const ItemCarousel = ({category}) => {
+const ItemCarousel = ({Data}) => {
 
-    const dispatch = useDispatch();
-  const { itemData } = useSelector((state) => state.ItemData);
-
-    useEffect(() => {
-        dispatch(getItemData("all"));
-
-    }, [])
     
-
-
-
 
     const arrowStyle = {
         height:34,
@@ -165,7 +155,7 @@ const ItemCarousel = ({category}) => {
                     itemClass="carousel-item-padding-40-px"
                     
                 >
-                    {ItemData.filter((item) => item.category===category).map((item) => (
+                    {Data?Data.filter((item) => item.category==="all").map((item) => (
                         <ItemBox>
                             <StyledImage src={item.url} alt="" />
                             <DetailsBox>
@@ -187,7 +177,7 @@ const ItemCarousel = ({category}) => {
                                 </Box>
                             </DetailsBox>
                         </ItemBox>
-                    ))}
+                    )):""}
                 </StyledCarousel>
             </MainBox>
         </>

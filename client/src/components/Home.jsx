@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {
   Box,
   Button,
@@ -10,6 +10,8 @@ import Navbar from './Navbar'
 import heroBg from '../images/heroBg.png'
 import b1 from '../images/b1.png'
 import ItemCarousel from './ItemCarousel';
+import { getItemData } from '../redux/action/ItemAction.js';
+import { useSelector, useDispatch } from "react-redux";
 import MultipleDishes from './MultipleDishes';
 
 const MainBox = styled(Box)`
@@ -87,6 +89,12 @@ const Home = () => {
   const [sidebar, setSidebar] = useState(false);
   
 
+  const dispatch = useDispatch();
+  const { itemData } = useSelector((state) => state.ItemData);
+
+    useEffect(() => {
+        dispatch(getItemData());
+    }, [])
 
 
   const showSidebar = () =>{
@@ -114,10 +122,10 @@ const Home = () => {
       </MainBox>
       <Heading variant="h3">Fresh Healthy Fruits</Heading>
       <LineHeading style={{height:'5px'}}/>
-      <ItemCarousel category="all" />
+      <ItemCarousel Data={itemData}/>
       <Heading variant="h3">Our Hot Dishes</Heading>
       <LineHeading style={{height:'5px'}}/>
-      <MultipleDishes/>
+      <MultipleDishes Data={itemData}/>
     </>
   )
 }

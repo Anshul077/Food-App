@@ -3,7 +3,7 @@ import axios from "axios";
 
 const url = "http://localhost:8000";
 
-export const getItemData = (category) => async (dispatch) => {
+export const getItemData = () => async (dispatch) => {
   try {
     const { data } = await axios.get(`${url}/getData`);
     await dispatch({
