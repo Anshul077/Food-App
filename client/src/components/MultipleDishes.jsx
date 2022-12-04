@@ -124,23 +124,12 @@ const MultipleDishes = ({Data}) => {
                 price:item.price,
                 qty:1
             });
-            // if (!response) return;
-            // else {
-            //   if (response.status === 200) {
-        
-            //     alert("Item added to the wishlist!!");
-            //   }
-            //   if (response.status === 201) {
-            //     alert("Item already in wishlist!!")
-            //   }
-            // }
+            
         }
         else{
             alert("PLEASE LOGIN FIRST")
         }
     }
-    
-
 
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState ,useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import {
   AppBar,
   Toolbar,
@@ -6,6 +6,7 @@ import {
   Button,
   styled,
   Typography,
+  Badge
 } from "@mui/material";
 import { GlobalInfo } from './Home';
 import "../App.css";
@@ -193,19 +194,19 @@ const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
 
-  const {user,setUser}=useContext(GlobalInfo)
+  const { user, setUser } = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
-  
 
-  const handleGoogleAuth =  () => {
+
+  const handleGoogleAuth = () => {
     const auth = getAuth()
-     signInWithPopup(auth, provider).then(result => {
+    signInWithPopup(auth, provider).then(result => {
       const newUser = result.user
       console.log(newUser)
       setUser(newUser)
-    }).catch(error =>{
+    }).catch(error => {
       console.log(error.message)
     })
   }
@@ -239,9 +240,17 @@ const Navbar = () => {
                 <IconContext.Provider value={{ color: "undefined" }}>
                   <div className="navbar">
                     <Link to="#" className="menu-bars">
-                      <ShoppingBasket style={{
-                        color: 'black', margin: '-9px 0 0 13px'
-                      }} onClick={showSidebar} />
+                      <Badge badgeContent={4} color="primary" 
+                      sx={{
+                        ".css-106c1u2-MuiBadge-badge": {
+                          backgroundColor: 'rgb(254, 84, 0)',margin:'-4px -1px',
+                        },
+                      }}
+                      style={{}}>
+                        <ShoppingBasket style={{
+                          color: 'black', margin: '-9px 0 0 13px'
+                        }} onClick={showSidebar} />
+                      </Badge>
                     </Link>
                   </div>
                   <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
@@ -282,17 +291,17 @@ const Navbar = () => {
                 </IconContext.Provider>
               </StyledLi>
               <StyledLi>
-                {Object.keys(user).length!==0? (<AvatarImage
+                {Object.keys(user).length !== 0 ? (<AvatarImage
                   src={user.photoURL}
-                  style={{borderRadius:'50%'}}
+                  style={{ borderRadius: '50%' }}
                   alt="logo1"
                   onClick={handleGoogleAuth}
-                />):(<AvatarImage
+                />) : (<AvatarImage
                   src={avatar}
                   alt="logoAvatar"
                   onClick={handleGoogleAuth}
                 />)}
-                
+
 
               </StyledLi>
             </StyledUl>
