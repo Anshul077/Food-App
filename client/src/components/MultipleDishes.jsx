@@ -111,20 +111,24 @@ const DetailsBox = styled(Box)`
 
 
 const MultipleDishes = ({Data}) => {
-    const {user} = useContext(GlobalInfo)
+    const {user,setCounter,counter} = useContext(GlobalInfo)
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
+    
 
     const addToCart =async (item)=>{
         if(Object.keys(user).length!==0){
-            let response = await addItemCart({
+            let response= await addItemCart({
                 username:user.displayName,
                 url:item.url,
                 name:item.name,
                 price:item.price,
                 qty:1
-            });
-            
+            })
+            if(response)
+            {
+                setCounter(counter+1)
+            }
         }
         else{
             alert("PLEASE LOGIN FIRST")

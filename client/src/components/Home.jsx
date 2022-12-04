@@ -88,8 +88,10 @@ const Heading = styled(Typography)`
 `
 
 const Home = () => {
+  
   const [sidebar, setSidebar] = useState(false);
   const [user,setUser]=useState({})
+  const [counter, setCounter] = useState(0);
 
   const dispatch = useDispatch();
   const { itemData } = useSelector((state) => state.ItemData);
@@ -103,7 +105,7 @@ const Home = () => {
     console.log("hello") 
     setSidebar(!sidebar);}
   return (
-    <GlobalInfo.Provider value={{user,setUser}}>
+    <GlobalInfo.Provider value={{user,setUser,counter,setCounter}}>
       <Navbar/>
       <MainBox>
         <LeftBox>

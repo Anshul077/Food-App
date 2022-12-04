@@ -194,10 +194,11 @@ const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
 
-  const { user, setUser } = useContext(GlobalInfo)
+  const { user, setUser,counter } = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
+ 
 
 
   const handleGoogleAuth = () => {
@@ -240,10 +241,13 @@ const Navbar = () => {
                 <IconContext.Provider value={{ color: "undefined" }}>
                   <div className="navbar">
                     <Link to="#" className="menu-bars">
-                      <Badge badgeContent={4} color="primary" 
+                      {        console.log("item",counter)
+}
+                      <Badge badgeContent={counter} color="primary" 
                       sx={{
                         ".css-106c1u2-MuiBadge-badge": {
                           backgroundColor: 'rgb(254, 84, 0)',margin:'-4px -1px',
+                          fontFamily: "'Poppins', sans-serif"
                         },
                       }}
                       style={{}}>
