@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { Box, Button, ButtonGroup, styled, Typography } from "@mui/material";
 import { ItemData } from '../Data.js'
+import { GlobalInfo } from './Home.jsx';
 import { LocalMall } from '@mui/icons-material';
 import { DinnerDining } from '@mui/icons-material';
 import { addItemCart } from '../service.js';
@@ -110,27 +111,33 @@ const DetailsBox = styled(Box)`
 
 
 const MultipleDishes = ({Data}) => {
-
+    const {user} = useContext(GlobalInfo)
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
     // const [dishData,setDishData] = useState({})
     const addToCart =async (item)=>{
+        if(user){
+
+            let response = await addItemCart({
+                name:item.name,
+                price:item.price,
+                url:item.url,
+                username:user.displayName
+            });
+            // if (!response) return;
+            // else {
+            //   if (response.status === 200) {
         
-        let response = await addItemCart({
-            name:item.name,
-            price:item.price,
-            url:item.url
-        });
-        // if (!response) return;
-        // else {
-        //   if (response.status === 200) {
-    
-        //     alert("Item added to the wishlist!!");
-        //   }
-        //   if (response.status === 201) {
-        //     alert("Item already in wishlist!!")
-        //   }
-        // }
+            //     alert("Item added to the wishlist!!");
+            //   }
+            //   if (response.status === 201) {
+            //     alert("Item already in wishlist!!")
+            //   }
+            // }
+        }
+        else{
+            alert("PLEASE LOGIN FIRST")
+        }
     }
     
 

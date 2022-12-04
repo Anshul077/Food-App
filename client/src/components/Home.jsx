@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,createContext} from 'react'
 import {
   Box,
   Button,
@@ -13,6 +13,8 @@ import ItemCarousel from './ItemCarousel';
 import { getItemData } from '../redux/action/ItemAction.js';
 import { useSelector, useDispatch } from "react-redux";
 import MultipleDishes from './MultipleDishes';
+
+export const GlobalInfo=createContext()
 
 const MainBox = styled(Box)`
 width:100%;
@@ -87,7 +89,7 @@ const Heading = styled(Typography)`
 
 const Home = () => {
   const [sidebar, setSidebar] = useState(false);
-  
+  const [user,setUser]=useState({})
 
   const dispatch = useDispatch();
   const { itemData } = useSelector((state) => state.ItemData);
@@ -101,7 +103,7 @@ const Home = () => {
     console.log("hello") 
     setSidebar(!sidebar);}
   return (
-    <>
+    <GlobalInfo.Provider value={{user,setUser}}>
       <Navbar/>
       <MainBox>
         <LeftBox>
@@ -126,7 +128,7 @@ const Home = () => {
       <Heading variant="h3">Our Hot Dishes</Heading>
       <LineHeading style={{height:'5px'}}/>
       <MultipleDishes Data={itemData}/>
-    </>
+    </GlobalInfo.Provider>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext} from 'react'
 import {
   AppBar,
   Toolbar,
@@ -7,6 +7,7 @@ import {
   styled,
   Typography,
 } from "@mui/material";
+import { GlobalInfo } from './Home';
 import "../App.css";
 import { Link } from "react-router-dom";
 import chef from '../images/chef.png'
@@ -192,14 +193,17 @@ const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
 
+  const {user,setUser}=useContext(GlobalInfo)
+
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
-  const [user,setUser]=useState({})
+  
 
   const handleGoogleAuth =  () => {
     const auth = getAuth()
      signInWithPopup(auth, provider).then(result => {
       const newUser = result.user
+      console.log(newUser)
       setUser(newUser)
     }).catch(error =>{
       console.log(error.message)
@@ -278,14 +282,14 @@ const Navbar = () => {
                 </IconContext.Provider>
               </StyledLi>
               <StyledLi>
-                {user.email ? (<AvatarImage
+                {Object.keys(user).length!==0? (<AvatarImage
                   src={user.photoURL}
                   style={{borderRadius:'50%'}}
-                  alt="logo"
+                  alt="logo1"
                   onClick={handleGoogleAuth}
                 />):(<AvatarImage
                   src={avatar}
-                  alt="logo"
+                  alt="logoAvatar"
                   onClick={handleGoogleAuth}
                 />)}
                 
