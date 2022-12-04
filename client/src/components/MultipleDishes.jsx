@@ -114,15 +114,16 @@ const MultipleDishes = ({Data}) => {
     const {user} = useContext(GlobalInfo)
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
-    // const [dishData,setDishData] = useState({})
+
     const addToCart =async (item)=>{
         if(user){
 
             let response = await addItemCart({
+                username:user.displayName,
+                url:item.url,
                 name:item.name,
                 price:item.price,
-                url:item.url,
-                username:user.displayName
+                qty:1
             });
             // if (!response) return;
             // else {
