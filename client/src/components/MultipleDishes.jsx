@@ -116,8 +116,7 @@ const MultipleDishes = ({Data}) => {
     const [DishName, setDishName] = useState("Chicken")
 
     const addToCart =async (item)=>{
-        if(user){
-
+        if(Object.keys(user).length!==0){
             let response = await addItemCart({
                 username:user.displayName,
                 url:item.url,
