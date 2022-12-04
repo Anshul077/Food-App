@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useContext } from 'react'
 import { Box, styled, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { addItemCart } from '../service.js';
 
 
 // import { ItemData } from '../Data.js'
-import { LocalMall,ArrowForward,ArrowBack } from '@mui/icons-material';
+import { LocalMall, ArrowForward, ArrowBack } from '@mui/icons-material';
+import { GlobalInfo } from './Home.jsx';
 
 
 const responsive = {
@@ -51,18 +53,18 @@ const StyledImage = styled("img")(({ theme }) => ({
     left: '3%',
     "&:hover": {
         transform: 'scale(1.3)',
-        transition:'.3s ease-in-out'
-      },
+        transition: '.3s ease-in-out'
+    },
 }));
 
 
 const Rupee = styled("span")(({ theme }) => ({
-    color:'rgb(254 84 0)',
+    color: 'rgb(254 84 0)',
     fontfamily: "'Poppins', sans-serif",
-    marginTop:5,
-    marginRight:2,
-  fontSize: 15,
-  fontWeight:'bold'
+    marginTop: 5,
+    marginRight: 2,
+    fontSize: 15,
+    fontWeight: 'bold'
 }));
 
 
@@ -93,42 +95,61 @@ const StyledCarousel = styled(Carousel)`
 overflow:visible;
 `;
 
-const ItemCarousel = ({Data}) => {
+const ItemCarousel = ({ Data }) => {
 
-    
+    const {user,counter,setCounter}=useContext(GlobalInfo)
 
     const arrowStyle = {
-        height:34,
-        width:34,
+        height: 34,
+        width: 34,
         border: 0,
         color: "#fff",
-        background:"rgb(255 154 104)",
-        borderRadius:"10%",
-        position:"absolute",
-        right:'4%',
-        top:'-30%'
-      };
-    const CustomRightArrow = ({onClick}) => (
+        background: "rgb(255 154 104)",
+        borderRadius: "10%",
+        position: "absolute",
+        right: '4%',
+        top: '-30%'
+    };
+    const CustomRightArrow = ({ onClick }) => (
         <button className="arrow right" onClick={onClick} style={arrowStyle}>
-        <ArrowForward style={{ fontSize: "25px" }} />
-      </button>
+            <ArrowForward style={{ fontSize: "25px" }} />
+        </button>
     );
     const arrowLeftStyle = {
-        height:34,
-        width:34,
+        height: 34,
+        width: 34,
         border: 0,
         color: "#fff",
-        background:"rgb(255 154 104)",
-        borderRadius:"10%",
-        position:"absolute",
-        right:'8%',
-        top:'-30%'
-      };
-    const CustomLeftArrow = ({onClick}) => (
+        background: "rgb(255 154 104)",
+        borderRadius: "10%",
+        position: "absolute",
+        right: '8%',
+        top: '-30%'
+    };
+    const CustomLeftArrow = ({ onClick }) => (
         <button className="arrow left" onClick={onClick} style={arrowLeftStyle}>
-        <ArrowBack style={{ fontSize: "25px" }} />
-      </button>
+            <ArrowBack style={{ fontSize: "25px" }} />
+        </button>
+
+
     );
+    const addToCart = async (item) => {
+        if (Object.keys(user).length !== 0) {
+            let response = await addItemCart({
+                username: user.displayName,
+                url: item.url,
+                name: item.name,
+                price: item.price,
+                qty: 1
+            })
+            if (response) {
+                setCounter(counter + 1)
+            }
+        }
+        else {
+            alert("PLEASE LOGIN FIRST")
+        }
+    }
 
 
     return (
@@ -153,31 +174,35 @@ const ItemCarousel = ({Data}) => {
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
-                    
+
                 >
-                    {Data?Data.filter((item) => item.category==="all").map((item) => (
+                    {Data ? Data.filter((item) => item.category === "all").map((item) => (
                         <ItemBox>
                             <StyledImage src={item.url} alt="" />
                             <DetailsBox>
-                            <LocalMall style={{
-                                background: 'rgb(254, 84, 0)',
-                                borderRadius:' 50%',
-                                padding: 5,
-                                color: 'white',
-                                marginLeft:80,
-                                marginTop: -10,
-                                position: 'absolute'
-                            }} />
-                                <Box style={{width:'112px',marginTop:20,display:'flex',flexDirection:'column'}}>
+                                <LocalMall style={{
+                                    background: 'rgb(254, 84, 0)',
+                                    borderRadius: ' 50%',
+                                    padding: 5,
+                                    color: 'white',
+                                    marginLeft: 80,
+                                    marginTop: -10,
+                                    position: 'absolute'
+                                }}
+                                    onClick={() => addToCart(item)}
+                                />
+                                <Box style={{ width: '112px', marginTop: 20, display: 'flex', flexDirection: 'column' }}>
 
-                                <Details>{item.name}</Details>
-                                <Details style={{fontSize: 12,
-  fontWeight:'lighter'}}>{item.calories}</Details>
-                                <Details><Rupee>₹</Rupee>{item.price}</Details>
+                                    <Details>{item.name}</Details>
+                                    <Details style={{
+                                        fontSize: 12,
+                                        fontWeight: 'lighter'
+                                    }}>{item.calories}</Details>
+                                    <Details><Rupee>₹</Rupee>{item.price}</Details>
                                 </Box>
                             </DetailsBox>
                         </ItemBox>
-                    )):""}
+                    )) : ""}
                 </StyledCarousel>
             </MainBox>
         </>

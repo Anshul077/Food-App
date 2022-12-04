@@ -21,12 +21,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  position: 'static',
+  position: 'sticky',
   height: '65px',
   transition: 'background-color .3s ease-in',
   boxShadow: 'none',
   color: 'black',
-  backgroundColor: 'transparent',
+  backgroundColor: '#f0f0f3',
+  boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
   display: 'flex',
   justifyContent: 'center',
 
@@ -241,8 +242,6 @@ const Navbar = () => {
                 <IconContext.Provider value={{ color: "undefined" }}>
                   <div className="navbar">
                     <Link to="#" className="menu-bars">
-                      {        console.log("item",counter)
-}
                       <Badge badgeContent={counter} color="primary" 
                       sx={{
                         ".css-106c1u2-MuiBadge-badge": {
