@@ -41,23 +41,28 @@ const CartItem = ({val}) => {
   const { cartData } = useSelector((state) => state.CartData);
 
 useEffect(() => {
-  console.log("val:",val)
   dispatch(getCartData(Object.keys(val).length !== 0?val.displayName.replaceAll(' ', ''):''))
-}, [val])
+}, [val,cartData])
 
 
   return (
     <>
-    <img style={{height: '35px', width: '45px'}} src="https://lh4.googleusercontent.com/3JGm7Z0eebL0k581aonAs7SpN8WxR1E_93eOQX_zyHY98DUB5AGE6n-WQpi1gYqToDc=w2400" />
-    <ItemDetails>
-        <ItemDet>Chicken Kebab Plate</ItemDet>
-        <ItemDet>$20</ItemDet>
-    </ItemDetails>
-    <ItemQuant >
-        <ItemDet>-</ItemDet>
-        <ItemDet>1</ItemDet>
-        <ItemDet>+</ItemDet>
-    </ItemQuant>
+    {
+      cartData!==undefined?cartData.map((item)=>(
+        <>
+        <img style={{height: '35px', width: '45px'}} src={item.url}/>
+        <ItemDetails>
+            <ItemDet>{item.name}</ItemDet>
+            <ItemDet>${item.price}</ItemDet>
+        </ItemDetails>
+        <ItemQuant >
+            <ItemDet>-</ItemDet>
+            <ItemDet>1</ItemDet>
+            <ItemDet>+</ItemDet>
+        </ItemQuant>
+            </>
+      )):""
+    }
     </>
   )
 }
