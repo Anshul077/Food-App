@@ -38,11 +38,12 @@ align-items:center;
 const CartItem = ({val}) => {
 
   const dispatch = useDispatch();
-  const { cartData } = useSelector((state) => state.ItemData);
+  const { cartData } = useSelector((state) => state.CartData);
 
 useEffect(() => {
-  dispatch(getCartData(val.displayName))
-}, [dispatch])
+  console.log("val:",val)
+  dispatch(getCartData(Object.keys(val).length !== 0?val.displayName.replaceAll(' ', ''):''))
+}, [val])
 
 
   return (

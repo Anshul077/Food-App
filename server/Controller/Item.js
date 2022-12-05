@@ -30,3 +30,14 @@ export const addItemToCart = async (request, response) => {
     }
 }
 
+export const getCartItem = async (request, response) => {
+    try {
+        const items = await cart.find({username:request.params.user});
+        console.log("data:",request.params.user)
+        console.log("user products:",items)
+        response.json(items);
+    } catch (error) {
+        response.status(500).json({ message: error.message });
+    }
+}
+

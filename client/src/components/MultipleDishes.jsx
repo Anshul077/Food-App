@@ -118,7 +118,7 @@ const MultipleDishes = ({Data}) => {
     const addToCart =async (item)=>{
         if(Object.keys(user).length!==0){
             let response= await addItemCart({
-                username:user.displayName,
+                username:user.displayName.replaceAll(' ', ''),
                 url:item.url,
                 name:item.name,
                 price:item.price,

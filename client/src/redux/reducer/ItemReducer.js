@@ -15,3 +15,18 @@ export const ItemReducer=(state = { itemData: []},action)=>{
     }
  }
 
+export const CartItemReducer=(state = { cartData: []},action)=>{
+    switch (action.type) {
+        case actionTypes.ADD_CART_DATA:
+            return{
+                cartData:action.payload
+            }
+        case actionTypes.ADD_CART_DATA_ERROR:
+            return{
+                error:action.error
+            }
+        default:
+            return state;
+    }
+ }
+
