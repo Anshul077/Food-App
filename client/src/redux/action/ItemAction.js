@@ -17,3 +17,19 @@ export const getItemData = () => async (dispatch) => {
     });
   }
 };
+
+export const getCartData = (user) => async (dispatch) => {
+  try {
+    console.log("user:",user)
+    // const { data } = await axios.get(`${url}/getData`);
+    // await dispatch({
+    //   type: actionTypes.ADD_DATA,
+    //   payload: data,
+    // });
+  } catch (error) {
+    // dispatch({
+    //   type: actionTypes.ADD_DATA_ERROR,
+    //   payload: error.response,
+    // });
+  }
+};

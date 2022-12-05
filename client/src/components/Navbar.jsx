@@ -228,7 +228,6 @@ const Navbar = () => {
   }
 
   const showSidebar = () => {
-    console.log("hello")
     setSidebar(!sidebar);
   }
 
@@ -277,7 +276,7 @@ const Navbar = () => {
                       }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> : <SecondaryBox>
                         <ContainerBox>
                           <Box2>
-                            <CartItem />
+                            <CartItem val={user}/>
 
                           </Box2>
 

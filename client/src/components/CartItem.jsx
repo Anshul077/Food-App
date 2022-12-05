@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import {
     AppBar,
     Toolbar,
@@ -9,7 +9,8 @@ import {
     Menu,
     MenuItem,
   } from "@mui/material";
-
+  import { getCartData } from '../redux/action/ItemAction.js';
+  import { useSelector, useDispatch } from "react-redux";
 
   const ItemDet = styled(Typography)`
   font-size:13px;
@@ -34,7 +35,16 @@ align-items:center;
 
 `;
 
-const CartItem = () => {
+const CartItem = ({val}) => {
+
+  const dispatch = useDispatch();
+  const { cartData } = useSelector((state) => state.ItemData);
+
+useEffect(() => {
+  dispatch(getCartData(val.displayName))
+}, [dispatch])
+
+
   return (
     <>
     <img style={{height: '35px', width: '45px'}} src="https://lh4.googleusercontent.com/3JGm7Z0eebL0k581aonAs7SpN8WxR1E_93eOQX_zyHY98DUB5AGE6n-WQpi1gYqToDc=w2400" />
