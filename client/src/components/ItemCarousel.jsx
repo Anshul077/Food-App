@@ -202,7 +202,7 @@ const ItemCarousel = ({ Data }) => {
                                 </Box>
                             </DetailsBox>
                         </ItemBox>
-                    )) : ""}
+                    )) : "LOADING......"}
                 </StyledCarousel>
             </MainBox>
         </>

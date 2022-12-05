@@ -23,11 +23,9 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'sticky',
   height: '65px',
-  transition: 'background-color .3s ease-in',
+  transition: 'background-color .1s ease-in',
   boxShadow: 'none',
   color: 'black',
-  backgroundColor: '#f0f0f3',
-  boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
   display: 'flex',
   justifyContent: 'center',
 
@@ -199,7 +197,17 @@ const Navbar = () => {
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
- 
+  const [scroll,setScroll]=useState(false)
+
+  const navbarScroll=()=>{
+    if(window.scrollY>=20){
+      setScroll(true)
+    }
+    else{setScroll(false)}
+  }
+
+  window.addEventListener('scroll',navbarScroll)
+
 
 
   const handleGoogleAuth = () => {
@@ -226,7 +234,8 @@ const Navbar = () => {
 
   return (
     <>
-      <StyledAppBar >
+      <StyledAppBar style={scroll?{backgroundColor:'#f0f0f3',  boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
+}:{backgroundColor:'transparent'}} >
         <Toolbar>
           <LogoImage
             src={chef}

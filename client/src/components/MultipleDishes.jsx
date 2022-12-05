@@ -197,7 +197,7 @@ const MultipleDishes = ({Data}) => {
                             </Box>
                         </DetailsBox>
                     </ItemBox>
-                )):""}
+                )):"LOADING......"}
             </SecondaryBox>
         </>
     )
