@@ -51,7 +51,7 @@ const AvatarImage = styled("img")(({ theme }) => ({
 }));
 
 const OrderButton = styled(Button)`
-width:80%;
+width:60%;
 border-radius:23px;
 margin:auto auto 20px auto;
 background-color:#ff5c19;
