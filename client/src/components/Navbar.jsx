@@ -51,7 +51,7 @@ const AvatarImage = styled("img")(({ theme }) => ({
 }));
 
 const OrderButton = styled(Button)`
-width:60%;
+width:80%;
 border-radius:23px;
 margin:auto auto 20px auto;
 background-color:#ff5c19;
@@ -127,11 +127,7 @@ max-height: 240px;
 background:transparent;
 margin: 10px 0;
 border-radius:13px;
-display:flex;
- justify-content:center;
- flex-direction:column;
- align-items:center;
- overflow: auto;
+overflow: auto;
 `;
 const ItemBox = styled(Box)`
 width:100%;
@@ -258,7 +254,7 @@ const Navbar = () => {
                         },
                       }}
                       style={{}}>
-                        <ShoppingBasket style={{
+                       <ShoppingBasket style={{
                           color: 'black', margin: '-9px 0 0 13px'
                         }} onClick={showSidebar} />
                       </Badge>
@@ -276,7 +272,9 @@ const Navbar = () => {
                       }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> : <SecondaryBox>
                         <ContainerBox>
                           <Box2>
-                            <CartItem val={user}/>
+                            { Object.keys(user).length !== 0 &&
+                            <CartItem val={user.displayName}/>
+                            }
 
                           </Box2>
 

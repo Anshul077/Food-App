@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useRef} from 'react'
 import {
     AppBar,
     Toolbar,
@@ -9,6 +9,7 @@ import {
     Menu,
     MenuItem,
   } from "@mui/material";
+  import { updateCartQty } from '../service.js';
   import { getCartData } from '../redux/action/ItemAction.js';
   import { useSelector, useDispatch } from "react-redux";
 
@@ -36,13 +37,18 @@ align-items:center;
 `;
 
 const CartItem = ({val}) => {
-
+  
   const dispatch = useDispatch();
-  const { cartData } = useSelector((state) => state.CartData);
-
-useEffect(() => {
-  dispatch(getCartData(Object.keys(val).length !== 0?val.displayName.replaceAll(' ', ''):''))
-}, [val,cartData])
+  const  {cartData}= useSelector((state) => state.CartData);
+ 
+  const decrementItem=async (qty)=>{
+    let response= await updateCartQty({qt:'1'})
+  }
+  
+  
+  useEffect(() => {
+    dispatch(getCartData(Object.keys(val).length !== 0?val.replaceAll(' ', ''):''))
+}, [dispatch,cartData])
 
 
   return (
@@ -56,9 +62,9 @@ useEffect(() => {
             <ItemDet>${item.price}</ItemDet>
         </ItemDetails>
         <ItemQuant >
-            <ItemDet>-</ItemDet>
-            <ItemDet>1</ItemDet>
-            <ItemDet>+</ItemDet>
+            <ItemDet style={{cursor:'pointer'}} onClick={()=>decrementItem(item.qty)}>-</ItemDet>
+            <ItemDet>{item.qty}</ItemDet>
+            <ItemDet style={{cursor:'pointer'}}>+</ItemDet>
         </ItemQuant>
             </>
       )):""
