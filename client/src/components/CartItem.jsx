@@ -41,8 +41,9 @@ const CartItem = ({val}) => {
   const dispatch = useDispatch();
   const  {cartData}= useSelector((state) => state.CartData);
  
-  const decrementItem=async (qty)=>{
-    let response= await updateCartQty({qt:'1'})
+  const decrementItem=async (qty,name)=>{
+    console.log("clicked")
+    await updateCartQty({itemName:name})
   }
   
   
@@ -62,7 +63,7 @@ const CartItem = ({val}) => {
             <ItemDet>${item.price}</ItemDet>
         </ItemDetails>
         <ItemQuant >
-            <ItemDet style={{cursor:'pointer'}} onClick={()=>decrementItem(item.qty)}>-</ItemDet>
+            <ItemDet style={{cursor:'pointer'}} onClick={()=>decrementItem(item.qty,item.name)}>-</ItemDet>
             <ItemDet>{item.qty}</ItemDet>
             <ItemDet style={{cursor:'pointer'}}>+</ItemDet>
         </ItemQuant>

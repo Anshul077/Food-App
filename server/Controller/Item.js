@@ -14,7 +14,7 @@ export const addItemToCart = async (request, response) => {
     try {
         let exist = await cart.findOne({ name: request.body.name});
         if(exist) {
-            await cart.updateOne({ name: request.body.name},{$inc:{qty:1}});
+            await cart.updateOne({ name: request.body.name},{$inc:{"qty":1}});
             return response.status(200).json({ message: "added" })
         } else {
                 const item = request.body;
@@ -29,7 +29,9 @@ export const addItemToCart = async (request, response) => {
 
 export const updateCartItem = async (request, response) => {
     try {
-    console.log("qty: ",request.body.qt)
+        console.log(request.body.itemName)
+        await cart.updateOne({ name: request.body.itemName},{$inc:{"qty":-1}});
+        return response.status(200).json({ message: "updat" })
     } catch (error) {
         response.status(500).json({ message: error.message });
     }

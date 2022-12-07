@@ -10,10 +10,9 @@ export const addItemCart =async (dishData)=>{
       }
     }
 
-export const updateCartQty =async (qty)=>{
+export const updateCartQty =async (details)=>{
     try {
-      console.log("data:",qty)
-        return await axios.post(`${url}/updateCart`, qty);
+        return await axios.post(`${url}/updateCart`, details);
       } catch (error) {
         console.log("error calling updateCart api",error);
       }
