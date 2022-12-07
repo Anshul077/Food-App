@@ -15,7 +15,7 @@ import chef from '../images/chef.png'
 import CartItem from './CartItem';
 import avatar from '../images/avatar.png'
 import { IconContext } from "react-icons";
-import { ShoppingBasket, ArrowBack, Delete } from '@mui/icons-material';
+import { ShoppingBasket, ArrowBack, Delete, LightMode, DarkMode } from '@mui/icons-material';
 import initializeAuthentication from '../Firebase/firebase-int';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -194,6 +194,7 @@ const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
   const [scroll,setScroll]=useState(false)
+  const [darkMode, setDarkMode]=useState(false)
 
   const navbarScroll=()=>{
     if(window.scrollY>=20){
@@ -220,6 +221,19 @@ const Navbar = () => {
 
   const handleOnClick = () => {
     val === false ? setVal(true) : setVal(false)
+
+  }
+
+  const handleMode = () => {
+   if(darkMode)
+   {
+    setDarkMode(false)
+    document.body.style.background = "#f0f0f3";
+   }
+   else{
+    setDarkMode(true)
+    document.body.style.background = "#060606";
+   }
 
   }
 
@@ -312,6 +326,18 @@ const Navbar = () => {
                 />)}
 
 
+              </StyledLi>
+              <StyledLi>
+                {darkMode ?( <LightMode
+                  src={avatar}
+                  alt="logoAvatar"
+                  onClick={handleMode}
+                />):( <DarkMode
+                  src={avatar}
+                  alt="logoAvatar"
+                  onClick={handleMode}
+                />)}
+               
               </StyledLi>
             </StyledUl>
           </LeftBox>
