@@ -92,6 +92,7 @@ const Home = () => {
   const [sidebar, setSidebar] = useState(false);
   const [user,setUser]=useState({})
   const [counter, setCounter] = useState(0);
+  const [darkMode, setDarkMode]=useState(false)
 
   const dispatch = useDispatch();
   const { itemData } = useSelector((state) => state.ItemData);
@@ -105,11 +106,11 @@ const Home = () => {
     console.log("hello") 
     setSidebar(!sidebar);}
   return (
-    <GlobalInfo.Provider value={{user,setUser,counter,setCounter}}>
+    <GlobalInfo.Provider value={{user,setUser,counter,setCounter,darkMode,setDarkMode}}>
       <Navbar/>
       <MainBox>
         <LeftBox>
-          <Tagline>
+          <Tagline style={darkMode?{color:"#ffffff"}:{color:"black"}}>
             Delicious Food To Fit<TaglineSub> Your lifestyle</TaglineSub>
           </Tagline>
           <ContentLine>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi non, rerum harum optio eveniet molestias dicta? Aliquam laboriosam blanditiis quod dignissimos provident omnis, dolorem quae exercitationem facilis cumque voluptas totam.</ContentLine>

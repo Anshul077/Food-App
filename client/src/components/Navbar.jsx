@@ -189,12 +189,12 @@ const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
 
-  const { user, setUser,counter } = useContext(GlobalInfo)
+  const { user, setUser,counter ,darkMode,setDarkMode} = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
   const [scroll,setScroll]=useState(false)
-  const [darkMode, setDarkMode]=useState(false)
+
 
   const navbarScroll=()=>{
     if(window.scrollY>=20){
@@ -253,9 +253,11 @@ const Navbar = () => {
           <AppName>FoodApp</AppName>
           <LeftBox>
             <StyledUl>
-              <StyledLi>Home</StyledLi>
+              {darkMode?( <><StyledLi style={{color:"#ffffff"}}>Home</StyledLi>
+              <StyledLi style={{color:"#ffffff"}}>Menu</StyledLi>
+              <StyledLi style={{color:"#ffffff"}}>About Us</StyledLi></>):( <><StyledLi>Home</StyledLi>
               <StyledLi>Menu</StyledLi>
-              <StyledLi>About Us</StyledLi>
+              <StyledLi>About Us</StyledLi></>)}
               <StyledLi>
                 <IconContext.Provider value={{ color: "undefined" }}>
                   <div className="navbar">
@@ -268,9 +270,9 @@ const Navbar = () => {
                         },
                       }}
                       style={{}}>
-                       <ShoppingBasket style={{
-                          color: 'black', margin: '-9px 0 0 13px'
-                        }} onClick={showSidebar} />
+                       <ShoppingBasket style={
+                          darkMode?{color:"#ffffff"}:{color: 'black', margin: '-9px 0 0 13px',}
+                        } onClick={showSidebar} />
                       </Badge>
                     </Link>
                   </div>
@@ -331,6 +333,7 @@ const Navbar = () => {
                 {darkMode ?( <LightMode
                   src={avatar}
                   alt="logoAvatar"
+                  style={darkMode?{filter:'invert(1)'}:""}
                   onClick={handleMode}
                 />):( <DarkMode
                   src={avatar}
