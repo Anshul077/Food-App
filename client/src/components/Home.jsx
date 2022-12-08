@@ -113,7 +113,7 @@ const Home = () => {
           <Tagline style={darkMode?{color:"#ffffff"}:{color:"black"}}>
             Delicious Food To Fit<TaglineSub> Your lifestyle</TaglineSub>
           </Tagline>
-          <ContentLine>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi non, rerum harum optio eveniet molestias dicta? Aliquam laboriosam blanditiis quod dignissimos provident omnis, dolorem quae exercitationem facilis cumque voluptas totam.</ContentLine>
+          <ContentLine  style={darkMode?{color:"#ffffff"}:{color:"black"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi non, rerum harum optio eveniet molestias dicta? Aliquam laboriosam blanditiis quod dignissimos provident omnis, dolorem quae exercitationem facilis cumque voluptas totam.</ContentLine>
 
                       <OrderButton>Order Now</OrderButton>
 

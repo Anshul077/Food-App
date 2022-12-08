@@ -189,21 +189,21 @@ const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
 
-  const { user, setUser,counter ,darkMode,setDarkMode} = useContext(GlobalInfo)
+  const { user, setUser, counter, darkMode, setDarkMode } = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
-  const [scroll,setScroll]=useState(false)
+  const [scroll, setScroll] = useState(false)
 
 
-  const navbarScroll=()=>{
-    if(window.scrollY>=20){
+  const navbarScroll = () => {
+    if (window.scrollY >= 20) {
       setScroll(true)
     }
-    else{setScroll(false)}
+    else { setScroll(false) }
   }
 
-  window.addEventListener('scroll',navbarScroll)
+  window.addEventListener('scroll', navbarScroll)
 
 
 
@@ -225,15 +225,14 @@ const Navbar = () => {
   }
 
   const handleMode = () => {
-   if(darkMode)
-   {
-    setDarkMode(false)
-    document.body.style.background = "#f0f0f3";
-   }
-   else{
-    setDarkMode(true)
-    document.body.style.background = "#060606";
-   }
+    if (darkMode) {
+      setDarkMode(false)
+      document.body.style.background = "#f0f0f3";
+    }
+    else {
+      setDarkMode(true)
+      document.body.style.background = "#181818";
+    }
 
   }
 
@@ -243,34 +242,34 @@ const Navbar = () => {
 
   return (
     <>
-      <StyledAppBar style={scroll ?darkMode?{backgroundColor:'black'}:{backgroundColor:'#f0f0f3',boxShadow:' rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px'}:{backgroundColor:'transparent'}}  >
+      <StyledAppBar style={scroll ? darkMode ? { backgroundColor: '#181818',boxShadow: ' rgb(163 163 163 / 15%) 1.95px 1.95px 2.6px'  } : { backgroundColor: '#f0f0f3', boxShadow: ' rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px' } : { backgroundColor: 'transparent' }}  >
         <Toolbar>
           <LogoImage
             src={chef}
             alt="logo"
           />
-          <AppName>FoodApp</AppName>
+          <AppName style={darkMode?{color:"#ffffff"}:{color:"black"}}>FoodApp</AppName>
           <LeftBox>
             <StyledUl>
-              {darkMode?( <><StyledLi style={{color:"#ffffff"}}>Home</StyledLi>
-              <StyledLi style={{color:"#ffffff"}}>Menu</StyledLi>
-              <StyledLi style={{color:"#ffffff"}}>About Us</StyledLi></>):( <><StyledLi>Home</StyledLi>
-              <StyledLi>Menu</StyledLi>
-              <StyledLi>About Us</StyledLi></>)}
+              {darkMode ? (<><StyledLi style={{ color: "#ffffff" }}>Home</StyledLi>
+                <StyledLi style={{ color: "#ffffff" }}>Menu</StyledLi>
+                <StyledLi style={{ color: "#ffffff" }}>About Us</StyledLi></>) : (<><StyledLi>Home</StyledLi>
+                  <StyledLi>Menu</StyledLi>
+                  <StyledLi>About Us</StyledLi></>)}
               <StyledLi>
                 <IconContext.Provider value={{ color: "undefined" }}>
                   <div className="navbar">
                     <Link to="#" className="menu-bars">
-                      <Badge badgeContent={counter} color="primary" 
-                      sx={{
-                        ".css-106c1u2-MuiBadge-badge": {
-                          backgroundColor: 'rgb(254, 84, 0)',margin:'-4px -1px',
-                          fontFamily: "'Poppins', sans-serif"
-                        },
-                      }}
-                      style={{}}>
-                       <ShoppingBasket style={
-                          darkMode?{color:"#ffffff"}:{color: 'black', margin: '-9px 0 0 13px',}
+                      <Badge badgeContent={counter} color="primary"
+                        sx={{
+                          ".css-106c1u2-MuiBadge-badge": {
+                            backgroundColor: 'rgb(254, 84, 0)', margin: '-4px -1px',
+                            fontFamily: "'Poppins', sans-serif"
+                          },
+                        }}
+                        style={{}}>
+                        <ShoppingBasket style={
+                          darkMode ? { color: "#ffffff" } : { color: 'black', margin: '-9px 0 0 13px', }
                         } onClick={showSidebar} />
                       </Badge>
                     </Link>
@@ -287,8 +286,8 @@ const Navbar = () => {
                       }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> : <SecondaryBox>
                         <ContainerBox>
                           <Box2>
-                            { Object.keys(user).length !== 0 &&
-                            <CartItem val={user.displayName}/>
+                            {Object.keys(user).length !== 0 &&
+                              <CartItem val={user.displayName} />
                             }
 
                           </Box2>
@@ -329,17 +328,17 @@ const Navbar = () => {
 
               </StyledLi>
               <StyledLi>
-                {darkMode ?( <LightMode
+                {darkMode ? (<LightMode
                   src={avatar}
                   alt="logoAvatar"
-                  style={darkMode?{filter:'invert(1)'}:""}
+                  style={darkMode ? { filter: 'invert(1)' } : ""}
                   onClick={handleMode}
-                />):( <DarkMode
+                />) : (<DarkMode
                   src={avatar}
                   alt="logoAvatar"
                   onClick={handleMode}
                 />)}
-               
+
               </StyledLi>
             </StyledUl>
           </LeftBox>
