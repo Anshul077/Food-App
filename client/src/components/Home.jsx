@@ -125,10 +125,10 @@ const Home = () => {
           <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '15%' }} alt="" />
         </RightBox>
       </MainBox>
-      <Heading variant="h3">Fresh Healthy Fruits</Heading>
+      <Heading variant="h3" style={darkMode?{color:"#ffffff"}:{color:"black"}}>Fresh Healthy Fruits</Heading>
       <LineHeading style={{height:'5px'}}/>
       <ItemCarousel Data={itemData}/>
-      <Heading variant="h3">Our Hot Dishes</Heading>
+      <Heading variant="h3" style={darkMode?{color:"#ffffff"}:{color:"black"}}>Our Hot Dishes</Heading>
       <LineHeading style={{height:'5px'}}/>
       <MultipleDishes Data={itemData}/>
     </GlobalInfo.Provider>

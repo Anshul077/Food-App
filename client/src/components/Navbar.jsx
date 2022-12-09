@@ -242,7 +242,8 @@ const Navbar = () => {
 
   return (
     <>
-      <StyledAppBar style={scroll ? darkMode ? { backgroundColor: '#181818',boxShadow: ' rgb(163 163 163 / 15%) 1.95px 1.95px 2.6px'  } : { backgroundColor: '#f0f0f3', boxShadow: ' rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px' } : { backgroundColor: 'transparent' }}  >
+      <StyledAppBar style={scroll ? darkMode ? { backgroundColor: '#181818',boxShadow: ' rgb(163 163 163 / 15%) 1.95px 1.95px 2.6px' 
+     } : { backgroundColor: '#f0f0f3', boxShadow: ' rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px' } : { backgroundColor: 'transparent' }}  >
         <Toolbar>
           <LogoImage
             src={chef}

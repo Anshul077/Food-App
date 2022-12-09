@@ -97,9 +97,7 @@ const ItemBox = styled(Box)`
   padding-right:10px;
   justify-content:space-between;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  &:hover{
-   background-color:#f1f1f1;
-  }
+
  `
 const DetailsBox = styled(Box)`
   display:flex;
@@ -110,7 +108,7 @@ const DetailsBox = styled(Box)`
 
 
 const MultipleDishes = ({Data}) => {
-    const {user,setCounter,counter} = useContext(GlobalInfo)
+    const {user,setCounter,counter,darkMode} = useContext(GlobalInfo)
     const ItemNames = ["Chicken", "Fish","Rice","Soft Drinks","Ice Cream"]
     const [DishName, setDishName] = useState("Chicken")
     
@@ -166,7 +164,7 @@ const MultipleDishes = ({Data}) => {
             </MainBox>
             <SecondaryBox>
                 {Data?Data.filter((item) => item.category === DishName).map((item) => (
-                    <ItemBox>
+                    <ItemBox style={darkMode?{boxShadow: 'rgba(99, 99, 99, 0.4) 0px 2px 8px 0px'}:{ boxShadow: ' rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px' }}>
                         <StyledImage src={item.url} alt="" />
                         <DetailsBox>
                             <LocalMall style={{
@@ -188,12 +186,13 @@ const MultipleDishes = ({Data}) => {
                                 flexDirection: 'column'
                             }}>
 
-                                <Details>{item.name}</Details>
-                                <Details style={{
-                                    fontSize: 12,
-                                    fontWeight: 'lighter'
-                                }}>{item.calories}</Details>
-                                <Details><Rupee>₹</Rupee>{item.price}</Details>
+<Details style={darkMode?{color:"#ffffff"}:{color:"black"}}>{item.name}</Details>
+                                    <Details style={darkMode?{color:"#ffffff",fontSize: 12,
+                                        fontWeight: 'lighter'}:{color:"black", fontSize: 12,
+                                        fontWeight: 'lighter'}
+                                       
+                                    }>{item.calories}</Details>
+                                    <Details style={darkMode?{color:"#ffffff"}:{color:"black"}}><Rupee>₹</Rupee>{item.price}</Details>
                             </Box>
                         </DetailsBox>
                     </ItemBox>
