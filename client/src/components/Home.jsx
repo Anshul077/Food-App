@@ -85,7 +85,7 @@ const Heading = styled(Typography)`
     font-size: 20px;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  margin:150px 0 30px 20px;
+  margin:130px 0 30px 20px;
 `
 
 const Home = () => {

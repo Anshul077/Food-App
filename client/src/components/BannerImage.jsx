@@ -11,7 +11,7 @@ import {
 import heroBg from '../images/heroBg.png'
 
 const ContainBox=styled(Box)`
-height:inherit;
+height:180px;
 width:fit-content;
 padding:10px;
 z-index:2;
@@ -19,13 +19,9 @@ position:relative;
 top:10vh;
 left:-5vw;
 background-color: #ffffff73;
-border-radius:13px;
+border-radius:23px;
 box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
 backdrop-filter: blur(10px);
-// display:flex;
-// flex-direction:column;
-// align-items:center;
-// justify-content:center;
 `
 const MainContainBox=styled(Box)`
 height:90%;
@@ -43,7 +39,7 @@ align-items:center;
 flex-direction:column;
 position:relative;
 width:fit-content;
-top:-55px;
+top:-65px;
 `
 
 
@@ -52,7 +48,7 @@ const BannerImage = () => {
     <MainContainBox>
         <img src={heroBg} style={{objectFit:"contain",height:"90%",width:"31vw",position:"absolute",zIndex:1}}/>
     <ContainBox>
-    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3"}} src="https://lh6.googleusercontent.com/F9wUCBnxawMk0D3uHEYOeh3QnRxMydAKKSVci2prethn0ZI3tQkaXAlgXqD3omOrdCY=w2400" alt="images"/>
+    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh6.googleusercontent.com/F9wUCBnxawMk0D3uHEYOeh3QnRxMydAKKSVci2prethn0ZI3tQkaXAlgXqD3omOrdCY=w2400" alt="images"/>
     <DetailsItem>
     <Typography>Icecream</Typography>
     <Typography>Chocolate & Vanilla</Typography>
@@ -60,7 +56,7 @@ const BannerImage = () => {
     </DetailsItem>
     </ContainBox>
     <ContainBox>
-    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3"}} src="https://lh6.googleusercontent.com/gHQJUopNhbsg-pXVA7lFWgEuRKSyy-5ELqYbpmmmgwcxpPHZx-NSu50nq1JNnE5_AAY=w2400" alt="images"/>
+    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh6.googleusercontent.com/gHQJUopNhbsg-pXVA7lFWgEuRKSyy-5ELqYbpmmmgwcxpPHZx-NSu50nq1JNnE5_AAY=w2400" alt="images"/>
     <DetailsItem>
     <Typography>Icecream</Typography>
     <Typography>Chocolate & Vanilla</Typography>
@@ -68,7 +64,7 @@ const BannerImage = () => {
     </DetailsItem>
     </ContainBox>
     <ContainBox>
-    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3"}} src="https://lh4.googleusercontent.com/PgeUp3b8VA2G57EfQbonblzuduYcF6mlBrBYoWM-F9MmN50Dvo1NjYsEOVwEVwdoaZM=w2400" alt="images"/>
+    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh4.googleusercontent.com/PgeUp3b8VA2G57EfQbonblzuduYcF6mlBrBYoWM-F9MmN50Dvo1NjYsEOVwEVwdoaZM=w2400" alt="images"/>
     <DetailsItem>
     <Typography>Icecream</Typography>
     <Typography>Chocolate & Vanilla</Typography>
@@ -76,7 +72,7 @@ const BannerImage = () => {
     </DetailsItem>
     </ContainBox>
     <ContainBox>
-    <img style={{height:"105px",position:"relative",top:"-80px",zIndex:"3"}} src="https://lh5.googleusercontent.com/dOo0d_Mzd59HLFvt_sm9cKmYoCq215h5uNbAHDRwPByjieBg51mNwFMWvDoeyrr86a4=w2400" alt="images"/>
+    <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh6.googleusercontent.com/Q56ny8R3F2O-GNKIWcg6lJxbMSg1OIMgh1luynoCSUzarQACA0T0nOUV2JPbErcUpok=w2400" alt="images"/>
     <DetailsItem>
     <Typography>Icecream</Typography>
     <Typography>Chocolate & Vanilla</Typography>
