@@ -177,7 +177,7 @@ const provider = new GoogleAuthProvider();
 
 const Navbar = () => {
 
-  const { user, setUser, counter, darkMode, setDarkMode } = useContext(GlobalInfo)
+  const { user, setUser, counter, darkMode, setDarkMode,setCounter } = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
   const [val, setVal] = useState(false)
@@ -213,6 +213,7 @@ const Navbar = () => {
   })
     if(response){
       alert("Cart is emptied")
+      setCounter(0)
       setSidebar(!sidebar);
     }
 
@@ -243,7 +244,6 @@ const Navbar = () => {
     else{
       console.log(response.data.message,response.data.message.length)
       setVal(false)
-      // val===true?setVal(false):setVal(true)
 
     }
     setSidebar(!sidebar);

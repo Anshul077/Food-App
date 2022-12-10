@@ -88,8 +88,7 @@ const Heading = styled(Typography)`
 `
 
 const Home = () => {
-  
-  const [sidebar, setSidebar] = useState(false);
+
   const [user,setUser]=useState({})
   const [counter, setCounter] = useState(0);
   const [darkMode, setDarkMode]=useState(false)
@@ -102,9 +101,6 @@ const Home = () => {
     }, [])
 
 
-  const showSidebar = () =>{
-    console.log("hello") 
-    setSidebar(!sidebar);}
   return (
     <GlobalInfo.Provider value={{user,setUser,counter,setCounter,darkMode,setDarkMode}}>
       <Navbar/>
