@@ -72,7 +72,10 @@ const LeftBox = styled(Box)`
   aLign-items: center;
 `;
 const PrimaryBox = styled(Box)`
-
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 `;
 const SecondaryBox = styled(Box)`
 height:36rem;
