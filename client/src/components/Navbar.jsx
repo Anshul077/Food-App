@@ -209,10 +209,9 @@ const Navbar = () => {
 
   const handleOnClick =async () => {
     let response = await deleteAllCartItem({
-      username: user.displayName.replaceAll(' ', ''),
+      name: user.displayName.replaceAll(' ', ''),
   })
-    val === false ? setVal(true) : setVal(false)
-
+  response===200 ?setVal(true): setVal(false)
   }
 
   const handleMode = () => {
