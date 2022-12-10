@@ -211,7 +211,8 @@ const Navbar = () => {
     let response = await deleteAllCartItem({
       name: user.displayName.replaceAll(' ', ''),
   })
-  response===200 ?setVal(true): setVal(false)
+    val === false ? setVal(true) : setVal(false)
+
   }
 
   const handleMode = () => {
@@ -261,7 +262,7 @@ const Navbar = () => {
                         style={{}}>
                         <ShoppingBasket style={
                           darkMode ? { color: "#ffffff" } : { color: 'black', margin: '-9px 0 0 13px', }
-                        } onClick={showSidebar} />
+                        } onClick={Object.keys(user).length !== 0 ? showSidebar : alert("Please login first!!")} />
                       </Badge>
                     </Link>
                   </div>

@@ -29,7 +29,6 @@ export const addItemToCart = async (request, response) => {
 
 export const updateCartItem = async (request, response) => {
     try {
-        console.log(request.body.itemName)
         await cart.updateOne({ name: request.body.itemName},{$inc:{"qty":-1}});
         return response.status(200).json({ message: "updat" })
     } catch (error) {
@@ -41,6 +40,16 @@ export const getCartItem = async (request, response) => {
     try {
         const items = await cart.find({username:request.params.user});
         response.json(items);
+    } catch (error) {
+        response.status(500).json({ message: error.message });
+    }
+}
+
+export const deleteCartItem = async (request, response) => {
+    try {
+        console.log(request.body.name)
+        await cart.deleteMany({ username: request.body.name});
+        return response.status(200).json({ message: "deleted" })
     } catch (error) {
         response.status(500).json({ message: error.message });
     }

@@ -20,6 +20,7 @@ export const updateCartQty =async (details)=>{
 
 export const deleteAllCartItem =async (name)=>{
     try {
+      console.log(name)
         return await axios.post(`${url}/deleteCart`, name);
       } catch (error) {
         console.log("error calling delete cart api",error);
