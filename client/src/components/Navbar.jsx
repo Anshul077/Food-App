@@ -16,6 +16,7 @@ import CartItem from './CartItem';
 import avatar from '../images/avatar.png'
 import { IconContext } from "react-icons";
 import { ShoppingBasket, ArrowBack, Delete, LightMode, DarkMode } from '@mui/icons-material';
+import {deleteAllCartItem} from '../service.js'
 import initializeAuthentication from '../Firebase/firebase-int';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -206,7 +207,10 @@ const Navbar = () => {
   }
 
 
-  const handleOnClick = () => {
+  const handleOnClick =async () => {
+    let response = await deleteAllCartItem({
+      username: user.displayName.replaceAll(' ', ''),
+  })
     val === false ? setVal(true) : setVal(false)
 
   }
