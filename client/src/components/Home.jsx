@@ -117,10 +117,6 @@ const Home = () => {
         </LeftBox>
         <RightBox>
           <BannerImage/>
-          {/* <ImageBox>
-            <img src={b1} alt="" style={{ height: 600, marginTop: '-5%' }} />
-          </ImageBox>
-          <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '15%' }} alt="" /> */}
         </RightBox>
       </MainBox>
       <Heading variant="h3" style={darkMode?{color:"#ffffff"}:{color:"black"}}>Fresh Healthy Fruits</Heading>
@@ -129,7 +125,6 @@ const Home = () => {
       <Heading variant="h3" style={darkMode?{color:"#ffffff"}:{color:"black"}}>Our Hot Dishes</Heading>
       <LineHeading style={{height:'5px'}}/>
       <MultipleDishes Data={itemData}/>
-      <BannerImage/>
     </GlobalInfo.Provider>
   )
 }
