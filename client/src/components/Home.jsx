@@ -13,6 +13,7 @@ import ItemCarousel from './ItemCarousel';
 import { getItemData } from '../redux/action/ItemAction.js';
 import { useSelector, useDispatch } from "react-redux";
 import MultipleDishes from './MultipleDishes';
+import BannerImage from './BannerImage';
 
 export const GlobalInfo=createContext()
 
@@ -127,6 +128,7 @@ const Home = () => {
       <Heading variant="h3" style={darkMode?{color:"#ffffff"}:{color:"black"}}>Our Hot Dishes</Heading>
       <LineHeading style={{height:'5px'}}/>
       <MultipleDishes Data={itemData}/>
+      <BannerImage/>
     </GlobalInfo.Provider>
   )
 }
