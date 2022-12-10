@@ -180,7 +180,7 @@ const Navbar = () => {
   const { user, setUser, counter, darkMode, setDarkMode } = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
-  const [val, setVal] = useState()
+  const [val, setVal] = useState(false)
   const [scroll, setScroll] = useState(false)
 
 
@@ -208,10 +208,13 @@ const Navbar = () => {
 
 
   const handleOnClick =async () => {
-    await deleteAllCartItem({
+    let response=await deleteAllCartItem({
       name: user.displayName.replaceAll(' ', ''),
   })
-    val === false ? setVal(true) : setVal(false)
+    if(response){
+      alert("Cart is emptied")
+      setSidebar(!sidebar);
+    }
 
   }
 
@@ -233,8 +236,17 @@ const Navbar = () => {
       let response=await checkCart({
         name: user.displayName.replaceAll(' ', ''),
     })
-    console.log("response:",response)
-      setSidebar(!sidebar);
+    if(response.data.message.length===0){
+      console.log(response.data.message,response.data.message.length)
+      setVal(true)
+    }
+    if(response.data.message.length!==0){
+      console.log(response.data.message,response.data.message.length)
+      setVal(false)
+      // val===true?setVal(false):setVal(true)
+
+    }
+    setSidebar(!sidebar);
     }
     else{alert("Please login first")}
   }
