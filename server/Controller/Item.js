@@ -48,8 +48,17 @@ export const getCartItem = async (request, response) => {
 export const deleteCartItem = async (request, response) => {
     try {
         console.log(request.body.name)
-        await cart.deleteMany({ username: request.body.name});
-        return response.status(200).json({ message: "deleted" })
+        let data=await cart.deleteMany({ username: request.body.name});
+        return response.status(200).json({ message:  data})
+    } catch (error) {
+        response.status(500).json({ message: error.message });
+    }
+}
+
+export const checkCartItem = async (request, response) => {
+    try {
+        let data=await cart.find({ username: request.body.name});
+        return response.status(200).json({ message:  data})
     } catch (error) {
         response.status(500).json({ message: error.message });
     }

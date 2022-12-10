@@ -16,7 +16,7 @@ import CartItem from './CartItem';
 import avatar from '../images/avatar.png'
 import { IconContext } from "react-icons";
 import { ShoppingBasket, ArrowBack, Delete, LightMode, DarkMode } from '@mui/icons-material';
-import {deleteAllCartItem} from '../service.js'
+import {deleteAllCartItem,checkCart} from '../service.js'
 import initializeAuthentication from '../Firebase/firebase-int';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -180,7 +180,7 @@ const Navbar = () => {
   const { user, setUser, counter, darkMode, setDarkMode } = useContext(GlobalInfo)
 
   const [sidebar, setSidebar] = useState(false);
-  const [val, setVal] = useState(false)
+  const [val, setVal] = useState()
   const [scroll, setScroll] = useState(false)
 
 
@@ -208,7 +208,7 @@ const Navbar = () => {
 
 
   const handleOnClick =async () => {
-    let response = await deleteAllCartItem({
+    await deleteAllCartItem({
       name: user.displayName.replaceAll(' ', ''),
   })
     val === false ? setVal(true) : setVal(false)
@@ -227,8 +227,16 @@ const Navbar = () => {
 
   }
 
-  const showSidebar = () => {
-    setSidebar(!sidebar);
+  const showSidebar = async() => {
+    if(Object.keys(user).length !== 0)
+    {
+      let response=await checkCart({
+        name: user.displayName.replaceAll(' ', ''),
+    })
+    console.log("response:",response)
+      setSidebar(!sidebar);
+    }
+    else{alert("Please login first")}
   }
 
   return (
@@ -262,7 +270,7 @@ const Navbar = () => {
                         style={{}}>
                         <ShoppingBasket style={
                           darkMode ? { color: "#ffffff" } : { color: 'black', margin: '-9px 0 0 13px', }
-                        } onClick={Object.keys(user).length !== 0 ? showSidebar : alert("Please login first!!")} />
+                        } onClick={showSidebar} />
                       </Badge>
                     </Link>
                   </div>

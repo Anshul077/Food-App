@@ -26,3 +26,12 @@ export const deleteAllCartItem =async (name)=>{
         console.log("error calling delete cart api",error);
       }
     }
+
+export const checkCart =async (name)=>{
+    try {
+      console.log(name)
+        return await axios.post(`${url}/checkCart`, name);
+      } catch (error) {
+        console.log("error calling check cart api",error);
+      }
+    }
