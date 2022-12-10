@@ -85,7 +85,7 @@ const Heading = styled(Typography)`
     font-size: 20px;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
-  margin:70px 0 30px 20px;
+  margin:150px 0 30px 20px;
 `
 
 const Home = () => {
@@ -116,10 +116,11 @@ const Home = () => {
 
         </LeftBox>
         <RightBox>
-          <ImageBox>
+          <BannerImage/>
+          {/* <ImageBox>
             <img src={b1} alt="" style={{ height: 600, marginTop: '-5%' }} />
           </ImageBox>
-          <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '15%' }} alt="" />
+          <img src={heroBg} style={{ height: '300px', width: '400px', float: 'right', marginRight: '10%', marginTop: '15%' }} alt="" /> */}
         </RightBox>
       </MainBox>
       <Heading variant="h3" style={darkMode?{color:"#ffffff"}:{color:"black"}}>Fresh Healthy Fruits</Heading>
