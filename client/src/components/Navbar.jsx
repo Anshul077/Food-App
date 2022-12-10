@@ -71,17 +71,10 @@ const LeftBox = styled(Box)`
   aLign-items: center;
 `;
 const PrimaryBox = styled(Box)`
-// height:100%;
-// background:#1a1a1a;
-// margin-top: 18px;
-// border-top-left-radius: 20px;
-// border-top-right-radius: 20px;
-// display:flex;
-//  justify-content:center;
-//  align-items:center;
+
 `;
 const SecondaryBox = styled(Box)`
-height:35rem;
+height:36rem;
 background:#1a1a1a;
 margin-top: 18px;
 border-top-left-radius: 20px;
@@ -114,16 +107,10 @@ display:flex;
  align-items:flex-start;
  flex-direction:column;
 `;
-const Box2 = styled(Box)`
-width: 100%;
-padding:10px;
-background:#2c2b2b;
-border-radius:13px;
-display:flex;
-`;
+
 const ContainerBox = styled(Box)`
 width: 90%;
-max-height: 240px;
+max-height: 259px;
 background:transparent;
 margin: 10px 0;
 border-radius:13px;
