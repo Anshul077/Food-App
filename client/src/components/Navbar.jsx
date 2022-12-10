@@ -285,16 +285,12 @@ const Navbar = () => {
                       {val === true ? <img style={{
                         height: '60vh'
                       }} src="https://lh3.googleusercontent.com/A02eP8ms8OLBl-3zpXA6rglLo7vAW8GbWhvMoRZAv6dDqOrfJLWoc903TuhSL87-SFI=w2400" alt="" /> : <SecondaryBox>
-                        <ContainerBox>
-                          <Box2>
+                          
                             {Object.keys(user).length !== 0 &&
+                            <ContainerBox>
                               <CartItem val={user.displayName} />
+                            </ContainerBox>
                             }
-
-                          </Box2>
-
-
-                        </ContainerBox>
                         <Box1>
                           <Box3>
                             <SubHeading style={{ marginTop: '-5px' }}>Sub Total<InlineHeading>$10</InlineHeading></SubHeading>

@@ -28,6 +28,13 @@ align-items:flex-start;
 justify-content:center;
 `;
 
+  const ItemBox = styled(Box)`
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  margin-bottom: 10px;
+`;
+
   const ItemQuant = styled(Box)`
 width:30%;
 display:flex;
@@ -56,7 +63,7 @@ const CartItem = ({val}) => {
     <>
     {
       cartData!==undefined?cartData.map((item)=>(
-        <>
+        <ItemBox>
         <img style={{height: '35px', width: '45px'}} src={item.url}/>
         <ItemDetails>
             <ItemDet>{item.name}</ItemDet>
@@ -67,7 +74,7 @@ const CartItem = ({val}) => {
             <ItemDet>{item.qty}</ItemDet>
             <ItemDet style={{cursor:'pointer'}}>+</ItemDet>
         </ItemQuant>
-            </>
+            </ItemBox>
       )):""
     }
     </>
