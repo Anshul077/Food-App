@@ -240,7 +240,7 @@ const Navbar = () => {
       console.log(response.data.message,response.data.message.length)
       setVal(true)
     }
-    if(response.data.message.length!==0){
+    else{
       console.log(response.data.message,response.data.message.length)
       setVal(false)
       // val===true?setVal(false):setVal(true)
