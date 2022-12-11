@@ -1,4 +1,5 @@
-import React,{useEffect,useState,useRef} from 'react'
+import React,{useEffect,useContext } from 'react'
+import { GlobalInfo } from './Home';
 import {
     AppBar,
     Toolbar,
@@ -44,13 +45,13 @@ align-items:center;
 `;
 
 const CartItem = ({val}) => {
-  
+
   const dispatch = useDispatch();
   const  {cartData}= useSelector((state) => state.CartData);
  
-  const decrementItem=async (qty,name)=>{
+  const decrementItem=async (qty,name,user)=>{
     console.log("clicked")
-    await updateCartQty({itemName:name})
+    await updateCartQty({itemName:name,itemQty:qty,username:user})
   }
   
   
@@ -70,7 +71,7 @@ const CartItem = ({val}) => {
             <ItemDet>${item.price}</ItemDet>
         </ItemDetails>
         <ItemQuant >
-            <ItemDet style={{cursor:'pointer'}} onClick={()=>decrementItem(item.qty,item.name)}>-</ItemDet>
+            <ItemDet style={{cursor:'pointer'}} onClick={()=>decrementItem(item.qty,item.name,Object.keys(val).length !== 0?val.replaceAll(' ', ''):'')}>-</ItemDet>
             <ItemDet>{item.qty}</ItemDet>
             <ItemDet style={{cursor:'pointer'}}>+</ItemDet>
         </ItemQuant>
