@@ -47,7 +47,7 @@ export const getCartItem = async (request, response) => {
 
 export const deleteCartItem = async (request, response) => {
     try {
-        console.log(request.body.name)
+      
         let data=await cart.deleteMany({ username: request.body.name});
         return response.status(200).json({ message:  data})
     } catch (error) {

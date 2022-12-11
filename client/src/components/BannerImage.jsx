@@ -24,8 +24,8 @@ box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
 backdrop-filter: blur(10px);
 `
 const MainContainBox=styled(Box)`
-height:90%;
-margin:30px 20px;
+height:95%;
+margin:20px 20px;
 width:fit-content;
 display:grid;
 float:right;
@@ -41,6 +41,25 @@ position:relative;
 width:fit-content;
 top:-65px;
 `
+const Heading=styled(Typography)`
+font-size:17px;
+font-family: 'Poppins', sans-serif;
+font-weight:bold;
+margin-bottom:5px;
+`
+const SubHeading=styled(Typography)`
+font-size:15px;
+font-family: 'Poppins', sans-serif;
+margin-bottom:5px;
+
+`
+const Price=styled(Typography)`
+font-size:16px;
+font-family: 'Poppins', sans-serif;
+font-weight:bold;
+margin-bottom:5px;
+
+`
 
 
 const BannerImage = () => {
@@ -50,33 +69,33 @@ const BannerImage = () => {
     <ContainBox>
     <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh6.googleusercontent.com/F9wUCBnxawMk0D3uHEYOeh3QnRxMydAKKSVci2prethn0ZI3tQkaXAlgXqD3omOrdCY=w2400" alt="images"/>
     <DetailsItem>
-    <Typography>Icecream</Typography>
-    <Typography>Chocolate & Vanilla</Typography>
-    <Typography>$ 5.25</Typography>
+    <Heading>Icecream</Heading>
+    <SubHeading>Chocolate & Vanilla</SubHeading>
+    <Price>$ 5.25</Price>
     </DetailsItem>
     </ContainBox>
     <ContainBox>
     <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh6.googleusercontent.com/gHQJUopNhbsg-pXVA7lFWgEuRKSyy-5ELqYbpmmmgwcxpPHZx-NSu50nq1JNnE5_AAY=w2400" alt="images"/>
     <DetailsItem>
-    <Typography>Icecream</Typography>
-    <Typography>Chocolate & Vanilla</Typography>
-    <Typography>$ 5.25</Typography>
+    <Heading>Chicken Kebab</Heading>
+    <SubHeading>Mixed Kebab Plate</SubHeading>
+    <Price>$ 8.25</Price>
     </DetailsItem>
     </ContainBox>
     <ContainBox>
     <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh4.googleusercontent.com/PgeUp3b8VA2G57EfQbonblzuduYcF6mlBrBYoWM-F9MmN50Dvo1NjYsEOVwEVwdoaZM=w2400" alt="images"/>
     <DetailsItem>
-    <Typography>Icecream</Typography>
-    <Typography>Chocolate & Vanilla</Typography>
-    <Typography>$ 5.25</Typography>
+    <Heading>Fish Kebab</Heading>
+    <SubHeading>Mixed Kebab Plate</SubHeading>
+    <Price>$ 6.25</Price>
     </DetailsItem>
     </ContainBox>
     <ContainBox>
     <img style={{height:"130px",position:"relative",top:"-80px",zIndex:"3",display:'block',margin:'auto'}} src="https://lh6.googleusercontent.com/Q56ny8R3F2O-GNKIWcg6lJxbMSg1OIMgh1luynoCSUzarQACA0T0nOUV2JPbErcUpok=w2400" alt="images"/>
     <DetailsItem>
-    <Typography>Icecream</Typography>
-    <Typography>Chocolate & Vanilla</Typography>
-    <Typography>$ 5.25</Typography>
+    <Heading>Pulaw</Heading>
+    <SubHeading>Mixed Rice Plate</SubHeading>
+    <Price>$ 7.25</Price>
     </DetailsItem>
     </ContainBox>
     </MainContainBox>
