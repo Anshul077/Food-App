@@ -43,6 +43,17 @@ export const updateCartItem = async (request, response) => {
         response.status(500).json({ message: error.message });
     }
 }
+export const increaseCartItem = async (request, response) => {
+    try {
+
+            let data=await cart.updateOne({ username:request.body.username,name: request.body.itemName},{$inc:{"qty":1}})
+            return response.status(200).json({ message: "increased" })
+
+        
+    } catch (error) {
+        response.status(500).json({ message: error.message });
+    }
+}
 
 export const getCartItem = async (request, response) => {
     try {

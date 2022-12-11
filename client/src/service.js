@@ -18,6 +18,14 @@ export const updateCartQty =async (details)=>{
       }
     }
 
+export const incCartQty =async (details)=>{
+    try {
+        return await axios.post(`${url}/incCart`, details);
+      } catch (error) {
+        console.log("error calling incrementCart api",error);
+      }
+    }
+
 export const deleteAllCartItem =async (name)=>{
     try {
       console.log(name)

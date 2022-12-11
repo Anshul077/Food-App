@@ -10,7 +10,7 @@ import {
     Menu,
     MenuItem,
   } from "@mui/material";
-  import { updateCartQty } from '../service.js';
+  import { updateCartQty,incCartQty } from '../service.js';
   import { getCartData } from '../redux/action/ItemAction.js';
   import { useSelector, useDispatch } from "react-redux";
 
@@ -54,6 +54,11 @@ const CartItem = ({val}) => {
     await updateCartQty({itemName:name,itemQty:qty,username:user})
   }
   
+  const incrementItem=async (qty,name,user)=>{
+    console.log("clicked")
+    await incCartQty({itemName:name,itemQty:qty,username:user})
+  }
+  
   
   useEffect(() => {
     dispatch(getCartData(Object.keys(val).length !== 0?val.replaceAll(' ', ''):''))
@@ -73,7 +78,7 @@ const CartItem = ({val}) => {
         <ItemQuant >
             <ItemDet style={{cursor:'pointer'}} onClick={()=>decrementItem(item.qty,item.name,Object.keys(val).length !== 0?val.replaceAll(' ', ''):'')}>-</ItemDet>
             <ItemDet>{item.qty}</ItemDet>
-            <ItemDet style={{cursor:'pointer'}}>+</ItemDet>
+            <ItemDet style={{cursor:'pointer'} } onClick={()=>incrementItem(item.qty,item.name,Object.keys(val).length !== 0?val.replaceAll(' ', ''):'')}>+</ItemDet>
         </ItemQuant>
             </ItemBox>
       )):""
