@@ -29,10 +29,16 @@ export const addItemToCart = async (request, response) => {
 
 export const updateCartItem = async (request, response) => {
     try {
-        console.log("user:",request.body)
-        let data=await cart.updateOne({ username:request.body.username,name: request.body.itemName},{$inc:{"qty":-1}})
-        console.log("data:",data)
-        return response.status(200).json({ message: "updat" })
+        if(request.body.itemQty===1)
+        {
+            await cart.deleteOne({username:request.body.username,name:request.body.itemName})
+            return response.status(300).json({ message: request.body.itemQty })
+        }
+        else{
+            let data=await cart.updateOne({ username:request.body.username,name: request.body.itemName},{$inc:{"qty":-1}})
+            return response.status(200).json({ message: "updated" })
+
+        }
     } catch (error) {
         response.status(500).json({ message: error.message });
     }
