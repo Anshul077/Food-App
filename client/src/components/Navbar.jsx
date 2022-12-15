@@ -26,7 +26,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   height: '65px',
   transition: 'background-color .1s ease-in',
   boxShadow: 'none',
-  color: 'red',
+  color: 'black',
   display: 'flex',
   justifyContent: 'center',
 
